@@ -3,37 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Save Gram — Команды Telegram Business</title>
+  <title>Save Gram — Команды для Telegram Business</title>
   <meta name="description" content="Команды Save Gram для Telegram Business: анимации, развлечения и управление чатами." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --bg: #07111f;
-      --bg-soft: rgba(255, 255, 255, 0.05);
-      --card: rgba(255, 255, 255, 0.06);
-      --card-strong: rgba(255, 255, 255, 0.08);
+      --bg: #07111c;
+      --bg2: #0a1624;
+      --panel: rgba(255, 255, 255, 0.06);
+      --panel-2: rgba(255, 255, 255, 0.04);
       --stroke: rgba(255, 255, 255, 0.10);
-      --stroke-hover: rgba(113, 212, 255, 0.35);
-
+      --stroke-2: rgba(255, 255, 255, 0.07);
       --text: #f5fbff;
-      --muted: #9ab0c5;
-      --muted-2: #7b91a6;
-
-      --blue: #2a8cff;
-      --blue-2: #1e6eff;
-      --cyan: #6fe8ff;
-      --cyan-2: #86dfff;
-
-      --success: #6df2bd;
-      --shadow: 0 20px 80px rgba(0, 0, 0, 0.28);
-      --radius-xl: 28px;
-      --radius-lg: 22px;
-      --radius-md: 16px;
-      --radius-sm: 12px;
+      --muted: #9bb0c5;
+      --muted-2: #7d92a8;
+      --blue: #2990ff;
+      --blue-2: #1f6fff;
+      --cyan: #7ae8ff;
+      --cyan-2: #bdf8ff;
+      --success: #8effc7;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.30);
+      --radius-xl: 30px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --radius-sm: 14px;
+      --container: 1200px;
       --transition: 0.25s ease;
-      --container: 1180px;
     }
 
     * {
@@ -50,10 +48,10 @@
       font-family: "Inter", sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at 15% 15%, rgba(42, 140, 255, 0.28), transparent 28%),
-        radial-gradient(circle at 85% 10%, rgba(111, 232, 255, 0.24), transparent 22%),
-        radial-gradient(circle at 50% 100%, rgba(30, 110, 255, 0.18), transparent 30%),
-        linear-gradient(180deg, #06101d 0%, #08131f 38%, #07101b 100%);
+        radial-gradient(circle at 0% 0%, rgba(41, 144, 255, 0.28), transparent 28%),
+        radial-gradient(circle at 100% 0%, rgba(122, 232, 255, 0.18), transparent 24%),
+        radial-gradient(circle at 50% 100%, rgba(31, 111, 255, 0.18), transparent 28%),
+        linear-gradient(180deg, #06111b 0%, #08121f 40%, #07101a 100%);
       min-height: 100vh;
       overflow-x: hidden;
     }
@@ -62,27 +60,25 @@
     body::after {
       content: "";
       position: fixed;
+      width: 340px;
+      height: 340px;
       border-radius: 999px;
       filter: blur(90px);
-      opacity: 0.35;
-      pointer-events: none;
       z-index: 0;
+      pointer-events: none;
+      opacity: 0.28;
     }
 
     body::before {
-      width: 360px;
-      height: 360px;
-      top: -120px;
-      left: -80px;
-      background: rgba(42, 140, 255, 0.28);
+      left: -100px;
+      top: -100px;
+      background: #2d8dff;
     }
 
     body::after {
-      width: 340px;
-      height: 340px;
-      right: -100px;
-      top: 80px;
-      background: rgba(111, 232, 255, 0.22);
+      right: -80px;
+      top: 100px;
+      background: #78ebff;
     }
 
     .container {
@@ -94,66 +90,77 @@
 
     .nav {
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       gap: 16px;
-      padding: 24px 0 10px;
+      padding: 22px 0 10px;
     }
 
-    .brand-mini {
+    .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
       text-decoration: none;
       color: var(--text);
     }
 
-    .brand-mini img {
-      width: 42px;
-      height: 42px;
+    .brand img {
+      width: 46px;
+      height: 46px;
       border-radius: 14px;
       object-fit: cover;
-      box-shadow: 0 10px 24px rgba(26, 100, 255, 0.25);
+      box-shadow: 0 14px 34px rgba(35, 121, 255, 0.22);
     }
 
-    .brand-mini span {
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand-text strong {
       font-size: 15px;
-      font-weight: 700;
       letter-spacing: -0.02em;
+    }
+
+    .brand-text span {
+      font-size: 12px;
+      color: var(--muted);
     }
 
     .nav-links {
       display: flex;
-      gap: 10px;
+      gap: 8px;
       flex-wrap: wrap;
     }
 
     .nav-links a {
-      color: var(--muted);
       text-decoration: none;
-      padding: 10px 14px;
-      border: 1px solid transparent;
-      border-radius: 999px;
-      transition: var(--transition);
+      color: var(--muted);
       font-size: 14px;
+      font-weight: 600;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: var(--transition);
     }
 
     .nav-links a:hover {
       color: var(--text);
+      background: rgba(255,255,255,0.04);
       border-color: rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.03);
     }
 
     .hero {
       margin-top: 18px;
+      border-radius: 34px;
       padding: 34px;
-      border-radius: 32px;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.04));
       border: 1px solid var(--stroke);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
       box-shadow: var(--shadow);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       position: relative;
       overflow: hidden;
     }
@@ -163,98 +170,90 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(circle at 18% 24%, rgba(255,255,255,0.12), transparent 20%),
-        radial-gradient(circle at 90% 15%, rgba(111,232,255,0.10), transparent 18%);
+        radial-gradient(circle at 15% 18%, rgba(255,255,255,0.08), transparent 18%),
+        radial-gradient(circle at 85% 10%, rgba(122,232,255,0.10), transparent 20%);
       pointer-events: none;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 28px;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 30px;
       align-items: center;
       position: relative;
       z-index: 1;
     }
 
-    .eyebrow {
+    .badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       padding: 10px 14px;
       border-radius: 999px;
-      border: 1px solid rgba(111,232,255,0.18);
-      background: rgba(111,232,255,0.08);
-      color: #d9faff;
       font-size: 13px;
-      font-weight: 600;
+      font-weight: 700;
+      color: #e5fbff;
+      background: rgba(122, 232, 255, 0.08);
+      border: 1px solid rgba(122, 232, 255, 0.18);
       margin-bottom: 18px;
     }
 
     .hero h1 {
-      font-size: clamp(38px, 7vw, 64px);
-      line-height: 0.94;
-      letter-spacing: -0.045em;
+      font-size: clamp(40px, 7vw, 68px);
+      line-height: 0.96;
+      letter-spacing: -0.05em;
       margin-bottom: 16px;
-      max-width: 720px;
+      max-width: 740px;
     }
 
     .gradient-text {
-      background: linear-gradient(135deg, #ffffff 0%, #c6f6ff 35%, #7cdcff 100%);
+      background: linear-gradient(135deg, #ffffff 0%, #d9faff 35%, #88e5ff 100%);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
 
     .hero p {
-      color: var(--muted);
-      font-size: 17px;
-      line-height: 1.7;
       max-width: 720px;
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--muted);
     }
 
     .hero-actions {
       display: flex;
-      align-items: center;
       gap: 12px;
       flex-wrap: wrap;
-      margin-top: 24px;
+      margin-top: 26px;
     }
 
     .btn {
-      appearance: none;
-      border: 0;
-      outline: none;
       text-decoration: none;
+      border: 0;
       cursor: pointer;
+      padding: 15px 20px;
+      border-radius: 16px;
+      font-size: 14px;
+      font-weight: 700;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      padding: 14px 18px;
-      border-radius: 16px;
-      font-weight: 700;
-      font-size: 14px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
-      will-change: transform;
     }
 
     .btn:hover {
       transform: translateY(-2px);
     }
 
-    .btn:active {
-      transform: translateY(0);
-    }
-
     .btn-primary {
-      color: #03101b;
-      background: linear-gradient(135deg, #ffffff 0%, #baf3ff 100%);
-      box-shadow: 0 14px 30px rgba(117, 233, 255, 0.22);
+      color: #05111d;
+      background: linear-gradient(135deg, #ffffff 0%, #bdf8ff 100%);
+      box-shadow: 0 16px 36px rgba(122, 232, 255, 0.18);
     }
 
     .btn-primary:hover {
-      box-shadow: 0 16px 34px rgba(117, 233, 255, 0.30);
+      box-shadow: 0 18px 38px rgba(122, 232, 255, 0.26);
     }
 
     .btn-secondary {
@@ -265,91 +264,94 @@
 
     .btn-secondary:hover {
       background: rgba(255,255,255,0.08);
-      border-color: rgba(255,255,255,0.18);
+      border-color: rgba(255,255,255,0.16);
     }
 
-    .hero-card {
+    .hero-side {
       padding: 22px;
-      border-radius: 26px;
+      border-radius: 28px;
       border: 1px solid rgba(255,255,255,0.10);
-      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.04));
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.04));
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
     }
 
-    .hero-card img {
+    .hero-side img {
       width: 100%;
       max-width: 260px;
       display: block;
       margin: 0 auto 18px;
-      filter: drop-shadow(0 18px 40px rgba(40, 125, 255, 0.28));
+      filter: drop-shadow(0 18px 42px rgba(38, 124, 255, 0.25));
       user-select: none;
       pointer-events: none;
     }
 
-    .hero-stats {
+    .quick-stats {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 12px;
     }
 
-    .stat {
-      padding: 14px;
+    .quick-stat {
+      padding: 16px;
       border-radius: 18px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
     }
 
-    .stat strong {
+    .quick-stat strong {
       display: block;
       font-size: 18px;
-      margin-bottom: 4px;
+      margin-bottom: 5px;
     }
 
-    .stat span {
+    .quick-stat span {
       color: var(--muted);
       font-size: 13px;
-      line-height: 1.4;
+      line-height: 1.5;
     }
 
-    .info-strip {
+    .features {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 14px;
-      margin: 18px 0 0;
+      margin-top: 18px;
     }
 
-    .info-box {
-      padding: 16px 18px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.04);
+    .feature-box {
+      padding: 18px;
+      border-radius: 20px;
       border: 1px solid var(--stroke);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .feature-box strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 15px;
+      color: var(--text);
+    }
+
+    .feature-box span {
       color: var(--muted);
       font-size: 14px;
-      line-height: 1.55;
-    }
-
-    .info-box strong {
-      display: block;
-      color: var(--text);
-      margin-bottom: 4px;
-      font-size: 15px;
+      line-height: 1.6;
     }
 
     .section {
-      padding: 70px 0 0;
+      padding-top: 72px;
     }
 
-    .section-head {
+    .section-top {
       display: flex;
       justify-content: space-between;
-      gap: 18px;
+      gap: 20px;
       align-items: flex-end;
       margin-bottom: 24px;
       flex-wrap: wrap;
     }
 
     .section-title h2 {
-      font-size: clamp(30px, 4vw, 42px);
+      font-size: clamp(30px, 4vw, 44px);
       line-height: 1;
       letter-spacing: -0.04em;
       margin-bottom: 10px;
@@ -357,18 +359,18 @@
 
     .section-title p {
       color: var(--muted);
-      max-width: 700px;
       line-height: 1.7;
+      max-width: 700px;
     }
 
-    .count-badge {
+    .counter-chip {
       padding: 12px 16px;
       border-radius: 999px;
-      border: 1px solid rgba(111,232,255,0.18);
-      background: rgba(111,232,255,0.08);
-      color: #d7fcff;
       font-weight: 700;
       font-size: 14px;
+      color: #e5fbff;
+      background: rgba(122, 232, 255, 0.08);
+      border: 1px solid rgba(122, 232, 255, 0.18);
     }
 
     .toolbar {
@@ -401,17 +403,20 @@
     }
 
     .search input:focus {
-      border-color: rgba(111,232,255,0.35);
+      border-color: rgba(122,232,255,0.35);
+      box-shadow: 0 0 0 4px rgba(122,232,255,0.08);
       background: rgba(255,255,255,0.07);
-      box-shadow: 0 0 0 4px rgba(111,232,255,0.08);
     }
 
-    .search svg {
+    .search .search-icon {
       position: absolute;
       left: 18px;
       top: 50%;
       transform: translateY(-50%);
-      opacity: 0.75;
+      width: 18px;
+      height: 18px;
+      color: #dff7ff;
+      opacity: 0.85;
     }
 
     .filters {
@@ -427,23 +432,23 @@
       border: 1px solid var(--stroke);
       background: rgba(255,255,255,0.04);
       color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
       cursor: pointer;
       transition: var(--transition);
-      font-weight: 600;
-      font-size: 14px;
     }
 
     .filter-btn:hover {
-      background: rgba(255,255,255,0.08);
       color: var(--text);
+      background: rgba(255,255,255,0.08);
       transform: translateY(-1px);
     }
 
     .filter-btn.active {
-      color: #06101d;
+      color: #05111d;
+      background: linear-gradient(135deg, #ffffff 0%, #bdf8ff 100%);
       border-color: transparent;
-      background: linear-gradient(135deg, #ffffff 0%, #bff7ff 100%);
-      box-shadow: 0 10px 24px rgba(111,232,255,0.18);
+      box-shadow: 0 14px 30px rgba(122, 232, 255, 0.18);
     }
 
     .commands-grid {
@@ -453,29 +458,28 @@
     }
 
     .command-card {
-      position: relative;
       padding: 20px;
       border-radius: 24px;
       border: 1px solid var(--stroke);
       background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.04));
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
-      transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease, box-shadow 0.22s ease;
+      min-height: 290px;
       display: flex;
       flex-direction: column;
-      min-height: 280px;
-      animation: fadeUp 0.6s ease both;
+      transition: transform .22s ease, border-color .22s ease, background .22s ease, box-shadow .22s ease;
+      animation: fadeUp .55s ease both;
     }
 
     .command-card:hover {
       transform: translateY(-4px);
-      border-color: var(--stroke-hover);
+      border-color: rgba(122, 232, 255, 0.30);
       background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.05));
       box-shadow:
         inset 0 1px 0 rgba(255,255,255,0.06),
-        0 16px 38px rgba(0, 0, 0, 0.18);
+        0 18px 40px rgba(0, 0, 0, 0.18);
     }
 
-    .command-top {
+    .card-top {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
@@ -483,55 +487,64 @@
       margin-bottom: 18px;
     }
 
-    .icon-badge {
-      width: 46px;
-      height: 46px;
+    .icon-wrap {
+      width: 48px;
+      height: 48px;
       border-radius: 16px;
-      background: linear-gradient(135deg, rgba(255,255,255,0.14), rgba(255,255,255,0.05));
+      background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.05));
       border: 1px solid rgba(255,255,255,0.10);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 20px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.10);
       flex-shrink: 0;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
     }
 
-    .category-tag {
+    .icon-wrap svg {
+      width: 20px;
+      height: 20px;
+      stroke: #ffffff;
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      opacity: 0.98;
+    }
+
+    .tag {
       display: inline-flex;
       align-items: center;
-      gap: 7px;
       padding: 8px 12px;
       border-radius: 999px;
       font-size: 12px;
       font-weight: 700;
-      letter-spacing: 0.01em;
-      background: rgba(255,255,255,0.06);
+      color: #defaff;
+      background: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,255,255,0.08);
-      color: #dceeff;
+      white-space: nowrap;
     }
 
     .command-title {
       font-size: 15px;
       font-weight: 800;
       margin-bottom: 14px;
-      color: #ffffff;
+      color: #fff;
     }
 
     .code-row {
       display: flex;
-      align-items: center;
       gap: 10px;
+      align-items: center;
       margin-bottom: 14px;
     }
 
-    .code {
+    .code-box {
       flex: 1;
       padding: 12px 14px;
       border-radius: 14px;
-      background: rgba(0, 0, 0, 0.18);
+      background: rgba(0,0,0,0.18);
       border: 1px solid rgba(255,255,255,0.06);
-      color: #d7f8ff;
+      color: #d6f8ff;
       font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
       font-size: 13px;
       white-space: nowrap;
@@ -540,39 +553,38 @@
     }
 
     .copy-btn {
+      padding: 12px 14px;
+      border-radius: 12px;
       border: 1px solid rgba(255,255,255,0.10);
       background: rgba(255,255,255,0.06);
-      color: var(--text);
-      border-radius: 12px;
-      padding: 12px 14px;
-      cursor: pointer;
-      font-weight: 700;
+      color: #fff;
       font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
       transition: var(--transition);
       flex-shrink: 0;
     }
 
     .copy-btn:hover {
+      transform: translateY(-1px);
       background: rgba(255,255,255,0.10);
       border-color: rgba(255,255,255,0.16);
-      transform: translateY(-1px);
     }
 
     .copy-btn.copied {
-      background: rgba(109, 242, 189, 0.16);
-      border-color: rgba(109, 242, 189, 0.25);
-      color: #cffff1;
+      background: rgba(142,255,199,0.14);
+      border-color: rgba(142,255,199,0.22);
+      color: #ddfff0;
     }
 
-    .command-desc {
+    .desc {
       color: var(--muted);
       font-size: 14px;
       line-height: 1.65;
       margin-bottom: 14px;
     }
 
-    .command-example,
-    .command-note {
+    .example {
       margin-top: auto;
       padding-top: 12px;
     }
@@ -581,58 +593,59 @@
       display: inline-block;
       font-size: 12px;
       font-weight: 700;
-      color: #dffbff;
+      color: #defbff;
       margin-bottom: 8px;
     }
 
     .example-code {
-      display: block;
       width: 100%;
+      display: block;
       padding: 12px 14px;
       border-radius: 14px;
       background: rgba(255,255,255,0.04);
       border: 1px solid rgba(255,255,255,0.06);
-      color: #cdefff;
+      color: #ccefff;
       font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
       font-size: 13px;
       line-height: 1.5;
       overflow-x: auto;
     }
 
-    .command-note {
-      color: var(--muted-2);
+    .note {
+      margin-top: 10px;
       font-size: 12px;
       line-height: 1.55;
+      color: var(--muted-2);
     }
 
-    .note-card {
+    .info-note {
       margin-top: 18px;
       padding: 22px;
       border-radius: 22px;
-      border: 1px solid rgba(255,255,255,0.08);
+      border: 1px solid var(--stroke);
       background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.035));
       color: var(--muted);
-      line-height: 1.7;
+      line-height: 1.75;
     }
 
-    .note-card strong {
+    .info-note strong {
       color: var(--text);
     }
 
     .footer {
-      padding: 70px 0 40px;
+      padding: 72px 0 40px;
     }
 
-    .footer-card {
+    .footer-box {
+      padding: 24px;
+      border-radius: 24px;
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,0.04);
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 18px;
       flex-wrap: wrap;
-      padding: 24px;
-      border-radius: 24px;
-      border: 1px solid var(--stroke);
-      background: rgba(255,255,255,0.04);
     }
 
     .footer-brand {
@@ -642,8 +655,8 @@
     }
 
     .footer-brand img {
-      width: 54px;
-      height: 54px;
+      width: 52px;
+      height: 52px;
       border-radius: 16px;
     }
 
@@ -654,7 +667,7 @@
     }
 
     .footer-brand span,
-    .footer-right {
+    .footer-text {
       color: var(--muted);
       font-size: 14px;
       line-height: 1.6;
@@ -667,7 +680,7 @@
     @keyframes fadeUp {
       from {
         opacity: 0;
-        transform: translateY(10px);
+        transform: translateY(12px);
       }
       to {
         opacity: 1;
@@ -675,25 +688,29 @@
       }
     }
 
-    .commands-grid .command-card:nth-child(2) { animation-delay: 0.04s; }
-    .commands-grid .command-card:nth-child(3) { animation-delay: 0.08s; }
-    .commands-grid .command-card:nth-child(4) { animation-delay: 0.12s; }
-    .commands-grid .command-card:nth-child(5) { animation-delay: 0.16s; }
-    .commands-grid .command-card:nth-child(6) { animation-delay: 0.20s; }
-    .commands-grid .command-card:nth-child(7) { animation-delay: 0.24s; }
-    .commands-grid .command-card:nth-child(8) { animation-delay: 0.28s; }
-    .commands-grid .command-card:nth-child(9) { animation-delay: 0.32s; }
-    .commands-grid .command-card:nth-child(10) { animation-delay: 0.36s; }
-    .commands-grid .command-card:nth-child(11) { animation-delay: 0.40s; }
-    .commands-grid .command-card:nth-child(12) { animation-delay: 0.44s; }
-    .commands-grid .command-card:nth-child(13) { animation-delay: 0.48s; }
-    .commands-grid .command-card:nth-child(14) { animation-delay: 0.52s; }
-    .commands-grid .command-card:nth-child(15) { animation-delay: 0.56s; }
-    .commands-grid .command-card:nth-child(16) { animation-delay: 0.60s; }
+    .commands-grid .command-card:nth-child(2) { animation-delay: .04s; }
+    .commands-grid .command-card:nth-child(3) { animation-delay: .08s; }
+    .commands-grid .command-card:nth-child(4) { animation-delay: .12s; }
+    .commands-grid .command-card:nth-child(5) { animation-delay: .16s; }
+    .commands-grid .command-card:nth-child(6) { animation-delay: .20s; }
+    .commands-grid .command-card:nth-child(7) { animation-delay: .24s; }
+    .commands-grid .command-card:nth-child(8) { animation-delay: .28s; }
+    .commands-grid .command-card:nth-child(9) { animation-delay: .32s; }
+    .commands-grid .command-card:nth-child(10) { animation-delay: .36s; }
+    .commands-grid .command-card:nth-child(11) { animation-delay: .40s; }
+    .commands-grid .command-card:nth-child(12) { animation-delay: .44s; }
+    .commands-grid .command-card:nth-child(13) { animation-delay: .48s; }
+    .commands-grid .command-card:nth-child(14) { animation-delay: .52s; }
+    .commands-grid .command-card:nth-child(15) { animation-delay: .56s; }
+    .commands-grid .command-card:nth-child(16) { animation-delay: .60s; }
 
     @media (max-width: 1100px) {
       .hero-grid {
         grid-template-columns: 1fr;
+      }
+
+      .features {
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .toolbar {
@@ -707,13 +724,9 @@
       .commands-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
-
-      .info-strip {
-        grid-template-columns: repeat(2, 1fr);
-      }
     }
 
-    @media (max-width: 720px) {
+    @media (max-width: 760px) {
       .nav {
         flex-direction: column;
         align-items: flex-start;
@@ -724,19 +737,11 @@
         border-radius: 26px;
       }
 
-      .hero h1 {
-        line-height: 1.02;
-      }
-
-      .hero-stats {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .commands-grid {
+      .features {
         grid-template-columns: 1fr;
       }
 
-      .info-strip {
+      .commands-grid {
         grid-template-columns: 1fr;
       }
 
@@ -749,8 +754,12 @@
         width: 100%;
       }
 
-      .footer-card {
+      .footer-box {
         align-items: flex-start;
+      }
+
+      .hero h1 {
+        line-height: 1.02;
       }
     }
   </style>
@@ -758,14 +767,17 @@
 <body>
   <div class="container">
     <header class="nav">
-      <a class="brand-mini" href="#">
-        <img src="logo.png" alt="Save Gram logo" />
-        <span>Save Gram</span>
+      <a href="#" class="brand">
+        <img src="logo.png" alt="Save Gram logo">
+        <div class="brand-text">
+          <strong>Save Gram</strong>
+          <span>Telegram Business Commands</span>
+        </div>
       </a>
 
       <nav class="nav-links">
         <a href="#commands">Команды</a>
-        <a href="#about">Особенности</a>
+        <a href="#features">Особенности</a>
         <a href="#help">Важно</a>
       </nav>
     </header>
@@ -773,398 +785,423 @@
     <section class="hero">
       <div class="hero-grid">
         <div>
-          <div class="eyebrow">💼 Telegram Business · Save Gram</div>
+          <div class="badge">💼 Telegram Business · Save Gram</div>
           <h1>
-            Команды <span class="gradient-text">Save Gram</span><br />
+            Команды <span class="gradient-text">Save Gram</span><br>
             для Telegram Business
           </h1>
           <p>
-            Красивый и удобный набор команд для владельца подключённого Business-бота:
+            Современный набор команд для владельца подключённого Business-бота:
             анимации текста, развлекательные команды и управление сообщениями
-            в личных чатах.
+            в личных чатах — в удобном и красивом интерфейсе.
           </p>
 
           <div class="hero-actions">
-            <a href="#commands" class="btn btn-primary">Смотреть команды</a>
+            <a href="#commands" class="btn btn-primary">Открыть команды</a>
             <a href="#help" class="btn btn-secondary">Условия использования</a>
           </div>
         </div>
 
-        <div class="hero-card">
-          <img src="logo.png" alt="Save Gram" />
-          <div class="hero-stats">
-            <div class="stat">
+        <div class="hero-side">
+          <img src="logo.png" alt="Save Gram">
+          <div class="quick-stats">
+            <div class="quick-stat">
               <strong>16 команд</strong>
               <span>Анимации, развлечения и управление</span>
             </div>
-            <div class="stat">
+            <div class="quick-stat">
               <strong>2 секунды</strong>
               <span>Интервал между командами</span>
             </div>
-            <div class="stat">
+            <div class="quick-stat">
               <strong>Business</strong>
-              <span>Доступны владельцу подключённого бота</span>
+              <span>Только для владельца подключённого бота</span>
             </div>
-            <div class="stat">
-              <strong>Минимализм</strong>
-              <span>Чистый и современный интерфейс</span>
+            <div class="quick-stat">
+              <strong>One-click</strong>
+              <span>Быстрый поиск и копирование команд</span>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="info-strip" id="about">
-        <div class="info-box">
-          <strong>🎯 Для кого</strong>
-          Владелец подключённого Business-бота в личных чатах.
+      <div class="features" id="features">
+        <div class="feature-box">
+          <strong>Поиск по командам</strong>
+          <span>Моментально находи нужную команду через поиск.</span>
         </div>
-        <div class="info-box">
-          <strong>⚡ Скорость</strong>
-          Между командами действует интервал 2 секунды.
+        <div class="feature-box">
+          <strong>Фильтры</strong>
+          <span>Разделение на анимации, развлечения и управление.</span>
         </div>
-        <div class="info-box">
-          <strong>🧩 Удобство</strong>
-          Поиск, фильтрация и быстрое копирование команд.
+        <div class="feature-box">
+          <strong>Копирование в один клик</strong>
+          <span>Нажал кнопку — команда уже в буфере обмена.</span>
         </div>
-        <div class="info-box">
-          <strong>💎 Стиль</strong>
-          Мягкие анимации, аккуратные карточки и цвета под бренд.
+        <div class="feature-box">
+          <strong>Минимализм</strong>
+          <span>Чистый SaaS-дизайн, мягкие тени и белые иконки.</span>
         </div>
       </div>
     </section>
 
     <section class="section" id="commands">
-      <div class="section-head">
+      <div class="section-top">
         <div class="section-title">
           <h2>Все команды</h2>
           <p>
-            Найди нужную команду через поиск, отфильтруй по категориям
-            и скопируй её в один клик.
+            Используй поиск и фильтры, чтобы быстро найти нужную команду
+            и сразу скопировать её.
           </p>
         </div>
-        <div class="count-badge">16 команд</div>
+
+        <div class="counter-chip">16 команд</div>
       </div>
 
       <div class="toolbar">
         <div class="search">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-            <path d="M21 21L16.65 16.65M10.5 18C6.35786 18 3 14.6421 3 10.5C3 6.35786 6.35786 3 10.5 3C14.6421 3 18 6.35786 18 10.5C18 14.6421 14.6421 18 10.5 18Z" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none">
+            <path d="M21 21L16.65 16.65M10.5 18C6.35786 18 3 14.6421 3 10.5C3 6.35786 6.35786 3 10.5 3C14.6421 3 18 6.35786 18 10.5C18 14.6421 14.6421 18 10.5 18Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          <input type="text" id="searchInput" placeholder="Найти команду: .ghost, .mute, .love..." />
+          <input id="searchInput" type="text" placeholder="Найти команду: .ghost, .mute, .love...">
         </div>
 
         <div class="filters">
           <button class="filter-btn active" data-filter="all">Все</button>
-          <button class="filter-btn" data-filter="animation">✨ Анимации</button>
-          <button class="filter-btn" data-filter="fun">🎲 Развлечения</button>
-          <button class="filter-btn" data-filter="control">🛡 Управление</button>
+          <button class="filter-btn" data-filter="animation">Анимации</button>
+          <button class="filter-btn" data-filter="fun">Развлечения</button>
+          <button class="filter-btn" data-filter="control">Управление</button>
         </div>
       </div>
 
       <div class="commands-grid" id="commandsGrid">
-        <article class="command-card" data-category="animation" data-search=".l текст печатает текст слева направо анимация">
-          <div class="command-top">
-            <div class="icon-badge">⌨️</div>
-            <div class="category-tag">✨ Анимация</div>
+
+        <article class="command-card" data-category="animation" data-search=".l текст слева направо печатает">
+          <div class="card-top">
+            <div class="icon-wrap">
+              <svg viewBox="0 0 24 24"><path d="M4 12h11"/><path d="M4 6h16"/><path d="M4 18h8"/><path d="M18 10l2 2-2 2"/></svg>
+            </div>
+            <div class="tag">Анимация</div>
           </div>
           <div class="command-title">Печать слева направо</div>
           <div class="code-row">
-            <div class="code">.l текст</div>
+            <div class="code-box">.l текст</div>
             <button class="copy-btn" data-copy=".l текст">Копировать</button>
           </div>
-          <div class="command-desc">Печатает текст слева направо, создавая эффект набора сообщения.</div>
-          <div class="command-example">
+          <div class="desc">Печатает текст слева направо, создавая эффект набора сообщения.</div>
+          <div class="example">
             <span class="label">Пример</span>
             <code class="example-code">.l Привет, как дела?</code>
           </div>
         </article>
 
-        <article class="command-card" data-category="animation" data-search=".r текст печатает текст справа налево анимация">
-          <div class="command-top">
-            <div class="icon-badge">↩️</div>
-            <div class="category-tag">✨ Анимация</div>
+        <article class="command-card" data-category="animation" data-search=".r текст справа налево печатает">
+          <div class="card-top">
+            <div class="icon-wrap">
+              <svg viewBox="0 0 24 24"><path d="M20 12H9"/><path d="M20 6H4"/><path d="M20 18h-8"/><path d="M6 10l-2 2 2 2"/></svg>
+            </div>
+            <div class="tag">Анимация</div>
           </div>
           <div class="command-title">Печать справа налево</div>
           <div class="code-row">
-            <div class="code">.r текст</div>
+            <div class="code-box">.r текст</div>
             <button class="copy-btn" data-copy=".r текст">Копировать</button>
           </div>
-          <div class="command-desc">Показывает текст с эффектом появления справа налево.</div>
-          <div class="command-example">
+          <div class="desc">Показывает текст с эффектом появления справа налево.</div>
+          <div class="example">
             <span class="label">Пример</span>
             <code class="example-code">.r Уже иду</code>
           </div>
         </article>
 
-        <article class="command-card" data-category="animation" data-search=".erase текст показывает текст и постепенно стирает его">
-          <div class="command-top">
-            <div class="icon-badge">🧹</div>
-            <div class="category-tag">✨ Анимация</div>
+        <article class="command-card" data-category="animation" data-search=".erase текст стирает">
+          <div class="card-top">
+            <div class="icon-wrap">
+              <svg viewBox="0 0 24 24"><path d="M20 20H9"/><path d="M13 4l7 7"/><path d="M3 14l7 7"/><path d="M10 7l7 7"/><path d="M3 14l7-7h4"/></svg>
+            </div>
+            <div class="tag">Анимация</div>
           </div>
           <div class="command-title">Стирание текста</div>
           <div class="code-row">
-            <div class="code">.erase текст</div>
+            <div class="code-box">.erase текст</div>
             <button class="copy-btn" data-copy=".erase текст">Копировать</button>
           </div>
-          <div class="command-desc">Показывает текст и постепенно стирает его, создавая эффект исчезновения.</div>
-          <div class="command-example">
+          <div class="desc">Показывает текст и постепенно стирает его, создавая эффект исчезновения.</div>
+          <div class="example">
             <span class="label">Пример</span>
             <code class="example-code">.erase Сейчас исчезну</code>
           </div>
         </article>
 
-        <article class="command-card" data-category="animation" data-search=".count текст отсчёт 3 2 1 и затем текст">
-          <div class="command-top">
-            <div class="icon-badge">⏳</div>
-            <div class="category-tag">✨ Анимация</div>
+        <article class="command-card" data-category="animation" data-search=".count текст отсчёт">
+          <div class="card-top">
+            <div class="icon-wrap">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v5l3 2"/></svg>
+            </div>
+            <div class="tag">Анимация</div>
           </div>
           <div class="command-title">Отсчёт перед текстом</div>
           <div class="code-row">
-            <div class="code">.count текст</div>
+            <div class="code-box">.count текст</div>
             <button class="copy-btn" data-copy=".count текст">Копировать</button>
           </div>
-          <div class="command-desc">Показывает отсчёт 3… 2… 1… и затем выводит текст.</div>
-          <div class="command-example">
+          <div class="desc">Показывает отсчёт 3… 2… 1… и затем выводит текст.</div>
+          <div class="example">
             <span class="label">Пример</span>
             <code class="example-code">.count Поехали</code>
           </div>
         </article>
 
-        <article class="command-card" data-category="animation" data-search=".love текст анимация сердца">
-          <div class="command-top">
-            <div class="icon-badge">❤️</div>
-            <div class="category-tag">✨ Анимация</div>
+        <article class="command-card" data-category="animation" data-search=".love текст сердце">
+          <div class="card-top">
+            <div class="icon-wrap">
+              <svg viewBox="0 0 24 24"><path d="M12 20s-6.5-4.35-8.5-8A5.1 5.1 0 0 1 12 5a5.1 5.1 0 0 1 8.5 7c-2 3.65-8.5 8-8.5 8Z"/></svg>
+            </div>
+            <div class="tag">Анимация</div>
           </div>
           <div class="command-title">Сердце + текст</div>
           <div class="code-row">
-            <div class="code">.love текст</div>
+            <div class="code-box">.love текст</div>
             <button class="copy-btn" data-copy=".love текст">Копировать</button>
           </div>
-          <div class="command-desc">Показывает небольшую анимацию сердца, а затем сам текст.</div>
-          <div class="command-example">
+          <div class="desc">Показывает небольшую анимацию сердца, а затем сам текст.</div>
+          <div class="example">
             <span class="label">Пример</span>
             <code class="example-code">.love Ты лучшая</code>
           </div>
         </article>
 
-        <article class="command-card" data-category="fun" data-search=".percent текст добавляет случайный процент">
-          <div class="command-top">
-            <div class="icon-badge">📊</div>
-            <div class="category-tag">🎲 Развлечение</div>
+        <article class="command-card" data-category="fun" data-search=".percent текст случайный процент">
+          <div class="card-top">
+            <div class="icon-wrap">
+              <svg viewBox="0 0 24 24"><path d="M19 5L5 19"/><circle cx="7" cy="7" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+            </div>
+            <div class="tag">Развлечение</div>
           </div>
           <div class="command-title">Случайный процент</div>
           <div class="code-row">
-            <div class="code">.percent текст</div>
+            <div class="code-box">.percent текст</div>
             <button class="copy-btn" data-copy=".percent текст">Копировать</button>
           </div>
-          <div class="command-desc">Добавляет к введённому тексту случайный процентный результат.</div>
-          <div class="command-example">
+          <div class="desc">Добавляет к введённому тексту случайный процентный результат.</div>
+          <div class="example">
             <span class="label">Пример</span>
             <code class="example-code">.percent Красивость</code>
           </div>
         </article>
 
-        <article class="command-card" data-category="animation" data-search=".boom текст показывает 3 2 1 взрыв">
-          <div class="command-top">
-            <div class="icon-badge">💥</div>
-            <div class="category-tag">✨ Анимация</div>
+        <article class="command-card" data-category="animation" data-search=".boom текст взрыв">
+          <div class="card-top">
+            <div class="icon-wrap">
+              <svg viewBox="0 0 24 24"><path d="M13 3L4 14h6l-1 7 9-11h-6l1-7Z"/></svg>
+            </div>
+            <div class="tag">Анимация</div>
           </div>
           <div class="command-title">Взрывной вывод текста</div>
           <div class="code-row">
-            <div class="code">.boom текст</div>
+            <div class="code-box">.boom текст</div>
             <button class="copy-btn" data-copy=".boom текст">Копировать</button>
           </div>
-          <div class="command-desc">Показывает отсчёт 3… 2… 1… 💥 и после него нужный текст.</div>
-          <div class="command-example">
+          <div class="desc">Показывает отсчёт 3… 2… 1… и затем эффектное появление текста.</div>
+          <div class="example">
             <span class="label">Пример</span>
             <code class="example-code">.boom Появился!</code>
           </div>
         </article>
 
-        <article class="command-card" data-category="animation" data-search=".shuffle текст перемешивает буквы собирает исходный текст">
-          <div class="command-top">
-            <div class="icon-badge">🔀</div>
-            <div class="category-tag">✨ Анимация</div>
+        <article class="command-card" data-category="animation" data-search=".shuffle текст перемешивает буквы">
+          <div class="card-top">
+            <div class="icon-wrap">
+              <svg viewBox="0 0 24 24"><path d="M16 3h5v5"/><path d="M4 20l8-8"/><path d="M20 8l-4-4"/><path d="M16 21h5v-5"/><path d="M4 4l8 8"/><path d="M20 16l-4 4"/></svg>
+            </div>
+            <div class="tag">Анимация</div>
           </div>
           <div class="command-title">Перемешивание букв</div>
           <div class="code-row">
-            <div class="code">.shuffle текст</div>
+            <div class="code-box">.shuffle текст</div>
             <button class="copy-btn" data-copy=".shuffle текст">Копировать</button>
           </div>
-          <div class="command-desc">Перемешивает буквы и постепенно собирает исходную фразу обратно.</div>
-          <div class="command-example">
+          <div class="desc">Перемешивает буквы и постепенно собирает исходный текст обратно.</div>
+          <div class="example">
             <span class="label">Пример</span>
             <code class="example-code">.shuffle Секретное сообщение</code>
           </div>
         </article>
 
-        <article class="command-card" data-category="fun" data-search=".ship имя1 имя2 показывает случайный процент совместимости">
-          <div class="command-top">
-            <div class="icon-badge">💞</div>
-            <div class="category-tag">🎲 Развлечение</div>
+        <article class="command-card" data-category="fun" data-search=".ship имя1 имя2 совместимость">
+          <div class="card-top">
+            <div class="icon-wrap">
+              <svg viewBox="0 0 24 24"><path d="M12 21s-6-4-8-7.5C2.2 10.8 4 7 7.5 7c1.8 0 3.1.9 4.5 2.4C13.4 7.9 14.7 7 16.5 7 20 7 21.8 10.8 20 13.5 18 17 12 21 12 21Z"/><path d="M8 3v4"/><path d="M16 3v4"/></svg>
+            </div>
+            <div class="tag">Развлечение</div>
           </div>
           <div class="command-title">Процент совместимости</div>
           <div class="code-row">
-            <div class="code">.ship имя1 имя2</div>
+            <div class="code-box">.ship имя1 имя2</div>
             <button class="copy-btn" data-copy=".ship имя1 имя2">Копировать</button>
           </div>
-          <div class="command-desc">Показывает случайный процент совместимости между двумя именами.</div>
-          <div class="command-example">
+          <div class="desc">Показывает случайный процент совместимости между двумя именами.</div>
+          <div class="example">
             <span class="label">Пример</span>
             <code class="example-code">.ship Алиса Максим</code>
           </div>
         </article>
 
-        <article class="command-card" data-category="fun" data-search=".iq имя шуточный случайный iq рейтинг">
-          <div class="command-top">
-            <div class="icon-badge">🧠</div>
-            <div class="category-tag">🎲 Развлечение</div>
+        <article class="command-card" data-category="fun" data-search=".iq имя iq рейтинг">
+          <div class="card-top">
+            <div class="icon-wrap">
+              <svg viewBox="0 0 24 24"><path d="M9.5 18h5"/><path d="M10 22h4"/><path d="M8 14c-1.2-1-2-2.6-2-4.3A6 6 0 0 1 12 4a6 6 0 0 1 6 5.7c0 1.7-.8 3.3-2 4.3-.7.6-1 1.1-1.2 1.6H9.2C9 15.1 8.7 14.6 8 14Z"/></svg>
+            </div>
+            <div class="tag">Развлечение</div>
           </div>
           <div class="command-title">Шуточный IQ</div>
           <div class="code-row">
-            <div class="code">.iq имя</div>
+            <div class="code-box">.iq имя</div>
             <button class="copy-btn" data-copy=".iq имя">Копировать</button>
           </div>
-          <div class="command-desc">Показывает шуточный случайный IQ-рейтинг для указанного имени.</div>
-          <div class="command-example">
+          <div class="desc">Показывает шуточный случайный IQ-рейтинг для указанного имени.</div>
+          <div class="example">
             <span class="label">Пример</span>
             <code class="example-code">.iq Тигран</code>
           </div>
         </article>
 
-        <article class="command-card" data-category="fun" data-search=".luck показывает удачу на сегодня от 0 до 100">
-          <div class="command-top">
-            <div class="icon-badge">🍀</div>
-            <div class="category-tag">🎲 Развлечение</div>
+        <article class="command-card" data-category="fun" data-search=".luck удача на сегодня">
+          <div class="card-top">
+            <div class="icon-wrap">
+              <svg viewBox="0 0 24 24"><path d="M10 3c0 3-2 5-5 5 0 4 3 7 7 7h1c4 0 7-3 7-7-3 0-5-2-5-5H10Z"/><path d="M12 15v6"/><path d="M9 21h6"/></svg>
+            </div>
+            <div class="tag">Развлечение</div>
           </div>
           <div class="command-title">Удача на сегодня</div>
           <div class="code-row">
-            <div class="code">.luck</div>
+            <div class="code-box">.luck</div>
             <button class="copy-btn" data-copy=".luck">Копировать</button>
           </div>
-          <div class="command-desc">Показывает случайный уровень удачи на сегодня от 0 до 100%.</div>
-          <div class="command-example">
+          <div class="desc">Показывает случайный уровень удачи на сегодня от 0 до 100%.</div>
+          <div class="example">
             <span class="label">Пример</span>
             <code class="example-code">.luck</code>
           </div>
         </article>
 
-        <article class="command-card" data-category="fun" data-search=".randomcase текст случайно меняет регистр букв">
-          <div class="command-top">
-            <div class="icon-badge">🔤</div>
-            <div class="category-tag">🎲 Развлечение</div>
+        <article class="command-card" data-category="fun" data-search=".randomcase текст регистр букв">
+          <div class="card-top">
+            <div class="icon-wrap">
+              <svg viewBox="0 0 24 24"><path d="M5 19l4-12 4 12"/><path d="M6.3 15h5.4"/><path d="M16 10h4a2 2 0 0 1 0 4h-4v-4Z"/><path d="M16 14h4.5a2 2 0 0 1 0 4H16v-8Z"/></svg>
+            </div>
+            <div class="tag">Развлечение</div>
           </div>
           <div class="command-title">Случайный регистр</div>
           <div class="code-row">
-            <div class="code">.randomcase текст</div>
+            <div class="code-box">.randomcase текст</div>
             <button class="copy-btn" data-copy=".randomcase текст">Копировать</button>
           </div>
-          <div class="command-desc">Случайным образом меняет регистр букв в сообщении.</div>
-          <div class="command-example">
+          <div class="desc">Случайным образом меняет регистр букв в сообщении.</div>
+          <div class="example">
             <span class="label">Пример</span>
             <code class="example-code">.randomcase Это тестовая фраза</code>
           </div>
         </article>
 
-        <article class="command-card" data-category="animation" data-search=".ghost текст секунды показывает текст и заменяет сообщение исчезло">
-          <div class="command-top">
-            <div class="icon-badge">👻</div>
-            <div class="category-tag">✨ Анимация</div>
+        <article class="command-card" data-category="animation" data-search=".ghost текст секунды исчезающее сообщение">
+          <div class="card-top">
+            <div class="icon-wrap">
+              <svg viewBox="0 0 24 24"><path d="M9 21v-2a3 3 0 0 1 6 0v2"/><path d="M5 10a7 7 0 1 1 14 0v9l-3-2-2 2-2-2-2 2-2-2-3 2v-9Z"/><path d="M9 10h.01"/><path d="M15 10h.01"/></svg>
+            </div>
+            <div class="tag">Анимация</div>
           </div>
           <div class="command-title">Исчезающее сообщение</div>
           <div class="code-row">
-            <div class="code">.ghost текст [секунды]</div>
+            <div class="code-box">.ghost текст [секунды]</div>
             <button class="copy-btn" data-copy=".ghost текст [секунды]">Копировать</button>
           </div>
-          <div class="command-desc">
-            Показывает текст и через заданное время заменяет его на
-            «👻 Сообщение исчезло».
-          </div>
-          <div class="command-example">
+          <div class="desc">Показывает текст и через заданное время заменяет его на «Сообщение исчезло».</div>
+          <div class="example">
             <span class="label">Пример</span>
             <code class="example-code">.ghost Это секрет 10</code>
           </div>
-          <div class="command-note">По умолчанию — 5 секунд. Допустимый диапазон: от 3 до 180 секунд.</div>
+          <div class="note">По умолчанию — 5 секунд. Допустимый диапазон: от 3 до 180 секунд.</div>
         </article>
 
-        <article class="command-card" data-category="control" data-search=".mute включает удаление новых сообщений собеседника бизнес чат">
-          <div class="command-top">
-            <div class="icon-badge">🔇</div>
-            <div class="category-tag">🛡 Управление</div>
+        <article class="command-card" data-category="control" data-search=".mute удаление новых сообщений собеседника">
+          <div class="card-top">
+            <div class="icon-wrap">
+              <svg viewBox="0 0 24 24"><path d="M11 5L6 9H3v6h3l5 4V5Z"/><path d="M19 9l-6 6"/></svg>
+            </div>
+            <div class="tag">Управление</div>
           </div>
           <div class="command-title">Включить мут</div>
           <div class="code-row">
-            <div class="code">.mute</div>
+            <div class="code-box">.mute</div>
             <button class="copy-btn" data-copy=".mute">Копировать</button>
           </div>
-          <div class="command-desc">
-            Включает удаление новых сообщений собеседника в текущем Business-чате.
-          </div>
-          <div class="command-example">
+          <div class="desc">Включает удаление новых сообщений собеседника в текущем Business-чате.</div>
+          <div class="example">
             <span class="label">Пример</span>
             <code class="example-code">.mute</code>
           </div>
-          <div class="command-note">Требуется право удаления всех сообщений.</div>
+          <div class="note">Требуется право удаления всех сообщений.</div>
         </article>
 
         <article class="command-card" data-category="control" data-search=".unmute отключает режим мута">
-          <div class="command-top">
-            <div class="icon-badge">🔊</div>
-            <div class="category-tag">🛡 Управление</div>
+          <div class="card-top">
+            <div class="icon-wrap">
+              <svg viewBox="0 0 24 24"><path d="M11 5L6 9H3v6h3l5 4V5Z"/><path d="M16 9a5 5 0 0 1 0 6"/><path d="M19 7a8 8 0 0 1 0 10"/></svg>
+            </div>
+            <div class="tag">Управление</div>
           </div>
           <div class="command-title">Отключить мут</div>
           <div class="code-row">
-            <div class="code">.unmute</div>
+            <div class="code-box">.unmute</div>
             <button class="copy-btn" data-copy=".unmute">Копировать</button>
           </div>
-          <div class="command-desc">Отключает режим мута в текущем Business-чате.</div>
-          <div class="command-example">
+          <div class="desc">Отключает режим мута в текущем Business-чате.</div>
+          <div class="example">
             <span class="label">Пример</span>
             <code class="example-code">.unmute</code>
           </div>
         </article>
 
-        <article class="command-card" data-category="control" data-search=".antimute показывает ограничение telegram нельзя запретить удаление сообщений ботом другого аккаунта">
-          <div class="command-top">
-            <div class="icon-badge">⚠️</div>
-            <div class="category-tag">🛡 Управление</div>
+        <article class="command-card" data-category="control" data-search=".antimute ограничение telegram">
+          <div class="card-top">
+            <div class="icon-wrap">
+              <svg viewBox="0 0 24 24"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/></svg>
+            </div>
+            <div class="tag">Управление</div>
           </div>
           <div class="command-title">Информация об antimute</div>
           <div class="code-row">
-            <div class="code">.antimute</div>
+            <div class="code-box">.antimute</div>
             <button class="copy-btn" data-copy=".antimute">Копировать</button>
           </div>
-          <div class="command-desc">
-            Показывает ограничение Telegram: нельзя запретить удаление сообщений ботом другого аккаунта.
-          </div>
-          <div class="command-example">
+          <div class="desc">Показывает ограничение Telegram: нельзя запретить удаление сообщений ботом другого аккаунта.</div>
+          <div class="example">
             <span class="label">Пример</span>
             <code class="example-code">.antimute</code>
           </div>
         </article>
+
       </div>
 
-      <div class="note-card" id="help">
+      <div class="info-note" id="help">
         <strong>Важно:</strong> команды доступны владельцу подключённого Business-бота
         в личных чатах. Между командами действует интервал <strong>2 секунды</strong>.
-        Для команды <strong>.mute</strong> нужно право удаления всех сообщений.
-        Команда <strong>.ghost</strong> поддерживает время от <strong>3 до 180 секунд</strong>.
+        Для команды <strong>.mute</strong> необходимо право удаления всех сообщений.
+        Для <strong>.ghost</strong> допустимое время — от <strong>3 до 180 секунд</strong>.
       </div>
     </section>
 
     <footer class="footer">
-      <div class="footer-card">
+      <div class="footer-box">
         <div class="footer-brand">
-          <img src="logo.png" alt="Save Gram" />
+          <img src="logo.png" alt="Save Gram">
           <div>
             <strong>Save Gram</strong>
-            <span>Минималистично. Красиво. Удобно.</span>
+            <span>Modern Telegram Business experience</span>
           </div>
         </div>
-
-        <div class="footer-right">
-          Telegram Business commands · Save Gram
-        </div>
+        <div class="footer-text">Минималистично · красиво · удобно</div>
       </div>
     </footer>
   </div>
