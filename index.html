@@ -1,1265 +1,1711 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-theme="dark">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Save Gram — Команды для Telegram Business</title>
-  <meta name="description" content="Команды Save Gram для Telegram Business: анимации, развлечения и управление чатами." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    :root {
-      --bg: #07111c;
-      --bg2: #0a1624;
-      --panel: rgba(255, 255, 255, 0.06);
-      --panel-2: rgba(255, 255, 255, 0.04);
-      --stroke: rgba(255, 255, 255, 0.10);
-      --stroke-2: rgba(255, 255, 255, 0.07);
-      --text: #f5fbff;
-      --muted: #9bb0c5;
-      --muted-2: #7d92a8;
-      --blue: #2990ff;
-      --blue-2: #1f6fff;
-      --cyan: #7ae8ff;
-      --cyan-2: #bdf8ff;
-      --success: #8effc7;
-      --shadow: 0 24px 80px rgba(0, 0, 0, 0.30);
-      --radius-xl: 30px;
-      --radius-lg: 24px;
-      --radius-md: 18px;
-      --radius-sm: 14px;
-      --container: 1200px;
-      --transition: 0.25s ease;
-    }
+    <title>Save Gram — Telegram Business Commands</title>
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    <meta
+        name="description"
+        content="Команды Save Gram для Telegram Business: анимации, развлечения и управление чатами."
+    >
 
-    html {
-      scroll-behavior: smooth;
-    }
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    body {
-      font-family: "Inter", sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 0% 0%, rgba(41, 144, 255, 0.28), transparent 28%),
-        radial-gradient(circle at 100% 0%, rgba(122, 232, 255, 0.18), transparent 24%),
-        radial-gradient(circle at 50% 100%, rgba(31, 111, 255, 0.18), transparent 28%),
-        linear-gradient(180deg, #06111b 0%, #08121f 40%, #07101a 100%);
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
 
-    body::before,
-    body::after {
-      content: "";
-      position: fixed;
-      width: 340px;
-      height: 340px;
-      border-radius: 999px;
-      filter: blur(90px);
-      z-index: 0;
-      pointer-events: none;
-      opacity: 0.28;
-    }
-
-    body::before {
-      left: -100px;
-      top: -100px;
-      background: #2d8dff;
-    }
-
-    body::after {
-      right: -80px;
-      top: 100px;
-      background: #78ebff;
-    }
-
-    .container {
-      width: min(var(--container), calc(100% - 32px));
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
-
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      padding: 22px 0 10px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      text-decoration: none;
-      color: var(--text);
-    }
-
-    .brand img {
-      width: 46px;
-      height: 46px;
-      border-radius: 14px;
-      object-fit: cover;
-      box-shadow: 0 14px 34px rgba(35, 121, 255, 0.22);
-    }
-
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .brand-text strong {
-      font-size: 15px;
-      letter-spacing: -0.02em;
-    }
-
-    .brand-text span {
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 600;
-      padding: 10px 14px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      transition: var(--transition);
-    }
-
-    .nav-links a:hover {
-      color: var(--text);
-      background: rgba(255,255,255,0.04);
-      border-color: rgba(255,255,255,0.08);
-    }
-
-    .hero {
-      margin-top: 18px;
-      border-radius: 34px;
-      padding: 34px;
-      border: 1px solid var(--stroke);
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 15% 18%, rgba(255,255,255,0.08), transparent 18%),
-        radial-gradient(circle at 85% 10%, rgba(122,232,255,0.10), transparent 20%);
-      pointer-events: none;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 30px;
-      align-items: center;
-      position: relative;
-      z-index: 1;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 14px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 700;
-      color: #e5fbff;
-      background: rgba(122, 232, 255, 0.08);
-      border: 1px solid rgba(122, 232, 255, 0.18);
-      margin-bottom: 18px;
-    }
-
-    .hero h1 {
-      font-size: clamp(40px, 7vw, 68px);
-      line-height: 0.96;
-      letter-spacing: -0.05em;
-      margin-bottom: 16px;
-      max-width: 740px;
-    }
-
-    .gradient-text {
-      background: linear-gradient(135deg, #ffffff 0%, #d9faff 35%, #88e5ff 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .hero p {
-      max-width: 720px;
-      font-size: 17px;
-      line-height: 1.75;
-      color: var(--muted);
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 26px;
-    }
-
-    .btn {
-      text-decoration: none;
-      border: 0;
-      cursor: pointer;
-      padding: 15px 20px;
-      border-radius: 16px;
-      font-size: 14px;
-      font-weight: 700;
-      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .btn-primary {
-      color: #05111d;
-      background: linear-gradient(135deg, #ffffff 0%, #bdf8ff 100%);
-      box-shadow: 0 16px 36px rgba(122, 232, 255, 0.18);
-    }
-
-    .btn-primary:hover {
-      box-shadow: 0 18px 38px rgba(122, 232, 255, 0.26);
-    }
-
-    .btn-secondary {
-      color: var(--text);
-      background: rgba(255,255,255,0.05);
-      border: 1px solid var(--stroke);
-    }
-
-    .btn-secondary:hover {
-      background: rgba(255,255,255,0.08);
-      border-color: rgba(255,255,255,0.16);
-    }
-
-    .hero-side {
-      padding: 22px;
-      border-radius: 28px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.04));
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
-    }
-
-    .hero-side img {
-      width: 100%;
-      max-width: 260px;
-      display: block;
-      margin: 0 auto 18px;
-      filter: drop-shadow(0 18px 42px rgba(38, 124, 255, 0.25));
-      user-select: none;
-      pointer-events: none;
-    }
-
-    .quick-stats {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-    }
-
-    .quick-stat {
-      padding: 16px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.07);
-    }
-
-    .quick-stat strong {
-      display: block;
-      font-size: 18px;
-      margin-bottom: 5px;
-    }
-
-    .quick-stat span {
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.5;
-    }
-
-    .features {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-      margin-top: 18px;
-    }
-
-    .feature-box {
-      padding: 18px;
-      border-radius: 20px;
-      border: 1px solid var(--stroke);
-      background: rgba(255,255,255,0.04);
-    }
-
-    .feature-box strong {
-      display: block;
-      margin-bottom: 6px;
-      font-size: 15px;
-      color: var(--text);
-    }
-
-    .feature-box span {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
-    .section {
-      padding-top: 72px;
-    }
-
-    .section-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      align-items: flex-end;
-      margin-bottom: 24px;
-      flex-wrap: wrap;
-    }
-
-    .section-title h2 {
-      font-size: clamp(30px, 4vw, 44px);
-      line-height: 1;
-      letter-spacing: -0.04em;
-      margin-bottom: 10px;
-    }
-
-    .section-title p {
-      color: var(--muted);
-      line-height: 1.7;
-      max-width: 700px;
-    }
-
-    .counter-chip {
-      padding: 12px 16px;
-      border-radius: 999px;
-      font-weight: 700;
-      font-size: 14px;
-      color: #e5fbff;
-      background: rgba(122, 232, 255, 0.08);
-      border: 1px solid rgba(122, 232, 255, 0.18);
-    }
-
-    .toolbar {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 16px;
-      align-items: center;
-      margin-bottom: 24px;
-    }
-
-    .search {
-      position: relative;
-    }
-
-    .search input {
-      width: 100%;
-      height: 58px;
-      border-radius: 18px;
-      border: 1px solid var(--stroke);
-      background: rgba(255,255,255,0.05);
-      color: var(--text);
-      padding: 0 18px 0 50px;
-      outline: none;
-      font-size: 15px;
-      transition: var(--transition);
-    }
-
-    .search input::placeholder {
-      color: #89a0b5;
-    }
-
-    .search input:focus {
-      border-color: rgba(122,232,255,0.35);
-      box-shadow: 0 0 0 4px rgba(122,232,255,0.08);
-      background: rgba(255,255,255,0.07);
-    }
-
-    .search .search-icon {
-      position: absolute;
-      left: 18px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 18px;
-      height: 18px;
-      color: #dff7ff;
-      opacity: 0.85;
-    }
-
-    .filters {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .filter-btn {
-      padding: 12px 16px;
-      border-radius: 999px;
-      border: 1px solid var(--stroke);
-      background: rgba(255,255,255,0.04);
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: var(--transition);
-    }
-
-    .filter-btn:hover {
-      color: var(--text);
-      background: rgba(255,255,255,0.08);
-      transform: translateY(-1px);
-    }
-
-    .filter-btn.active {
-      color: #05111d;
-      background: linear-gradient(135deg, #ffffff 0%, #bdf8ff 100%);
-      border-color: transparent;
-      box-shadow: 0 14px 30px rgba(122, 232, 255, 0.18);
-    }
-
-    .commands-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .command-card {
-      padding: 20px;
-      border-radius: 24px;
-      border: 1px solid var(--stroke);
-      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.04));
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
-      min-height: 290px;
-      display: flex;
-      flex-direction: column;
-      transition: transform .22s ease, border-color .22s ease, background .22s ease, box-shadow .22s ease;
-      animation: fadeUp .55s ease both;
-    }
-
-    .command-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(122, 232, 255, 0.30);
-      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.05));
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.06),
-        0 18px 40px rgba(0, 0, 0, 0.18);
-    }
-
-    .card-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 12px;
-      margin-bottom: 18px;
-    }
-
-    .icon-wrap {
-      width: 48px;
-      height: 48px;
-      border-radius: 16px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.05));
-      border: 1px solid rgba(255,255,255,0.10);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.10);
-      flex-shrink: 0;
-    }
-
-    .icon-wrap svg {
-      width: 20px;
-      height: 20px;
-      stroke: #ffffff;
-      stroke-width: 2;
-      fill: none;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      opacity: 0.98;
-    }
-
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      padding: 8px 12px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 700;
-      color: #defaff;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      white-space: nowrap;
-    }
-
-    .command-title {
-      font-size: 15px;
-      font-weight: 800;
-      margin-bottom: 14px;
-      color: #fff;
-    }
-
-    .code-row {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      margin-bottom: 14px;
-    }
-
-    .code-box {
-      flex: 1;
-      padding: 12px 14px;
-      border-radius: 14px;
-      background: rgba(0,0,0,0.18);
-      border: 1px solid rgba(255,255,255,0.06);
-      color: #d6f8ff;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      font-size: 13px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .copy-btn {
-      padding: 12px 14px;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.06);
-      color: #fff;
-      font-size: 13px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: var(--transition);
-      flex-shrink: 0;
-    }
-
-    .copy-btn:hover {
-      transform: translateY(-1px);
-      background: rgba(255,255,255,0.10);
-      border-color: rgba(255,255,255,0.16);
-    }
-
-    .copy-btn.copied {
-      background: rgba(142,255,199,0.14);
-      border-color: rgba(142,255,199,0.22);
-      color: #ddfff0;
-    }
-
-    .desc {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.65;
-      margin-bottom: 14px;
-    }
-
-    .example {
-      margin-top: auto;
-      padding-top: 12px;
-    }
-
-    .label {
-      display: inline-block;
-      font-size: 12px;
-      font-weight: 700;
-      color: #defbff;
-      margin-bottom: 8px;
-    }
-
-    .example-code {
-      width: 100%;
-      display: block;
-      padding: 12px 14px;
-      border-radius: 14px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.06);
-      color: #ccefff;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      font-size: 13px;
-      line-height: 1.5;
-      overflow-x: auto;
-    }
-
-    .note {
-      margin-top: 10px;
-      font-size: 12px;
-      line-height: 1.55;
-      color: var(--muted-2);
-    }
-
-    .info-note {
-      margin-top: 18px;
-      padding: 22px;
-      border-radius: 22px;
-      border: 1px solid var(--stroke);
-      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.035));
-      color: var(--muted);
-      line-height: 1.75;
-    }
-
-    .info-note strong {
-      color: var(--text);
-    }
-
-    .footer {
-      padding: 72px 0 40px;
-    }
-
-    .footer-box {
-      padding: 24px;
-      border-radius: 24px;
-      border: 1px solid var(--stroke);
-      background: rgba(255,255,255,0.04);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .footer-brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .footer-brand img {
-      width: 52px;
-      height: 52px;
-      border-radius: 16px;
-    }
-
-    .footer-brand strong {
-      display: block;
-      font-size: 18px;
-      margin-bottom: 4px;
-    }
-
-    .footer-brand span,
-    .footer-text {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
-    .hidden {
-      display: none !important;
-    }
-
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(12px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .commands-grid .command-card:nth-child(2) { animation-delay: .04s; }
-    .commands-grid .command-card:nth-child(3) { animation-delay: .08s; }
-    .commands-grid .command-card:nth-child(4) { animation-delay: .12s; }
-    .commands-grid .command-card:nth-child(5) { animation-delay: .16s; }
-    .commands-grid .command-card:nth-child(6) { animation-delay: .20s; }
-    .commands-grid .command-card:nth-child(7) { animation-delay: .24s; }
-    .commands-grid .command-card:nth-child(8) { animation-delay: .28s; }
-    .commands-grid .command-card:nth-child(9) { animation-delay: .32s; }
-    .commands-grid .command-card:nth-child(10) { animation-delay: .36s; }
-    .commands-grid .command-card:nth-child(11) { animation-delay: .40s; }
-    .commands-grid .command-card:nth-child(12) { animation-delay: .44s; }
-    .commands-grid .command-card:nth-child(13) { animation-delay: .48s; }
-    .commands-grid .command-card:nth-child(14) { animation-delay: .52s; }
-    .commands-grid .command-card:nth-child(15) { animation-delay: .56s; }
-    .commands-grid .command-card:nth-child(16) { animation-delay: .60s; }
-
-    @media (max-width: 1100px) {
-      .hero-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .features {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .toolbar {
-        grid-template-columns: 1fr;
-      }
-
-      .filters {
-        justify-content: flex-start;
-      }
-
-      .commands-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 760px) {
-      .nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .hero {
-        padding: 24px;
-        border-radius: 26px;
-      }
-
-      .features {
-        grid-template-columns: 1fr;
-      }
-
-      .commands-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .code-row {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .copy-btn {
-        width: 100%;
-      }
-
-      .footer-box {
-        align-items: flex-start;
-      }
-
-      .hero h1 {
-        line-height: 1.02;
-      }
-    }
-  </style>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <div class="container">
-    <header class="nav">
-      <a href="#" class="brand">
-        <img src="logo.png" alt="Save Gram logo">
-        <div class="brand-text">
-          <strong>Save Gram</strong>
-          <span>Telegram Business Commands</span>
-        </div>
-      </a>
 
-      <nav class="nav-links">
-        <a href="#commands">Команды</a>
-        <a href="#features">Особенности</a>
-        <a href="#help">Важно</a>
-      </nav>
-    </header>
+<div class="background-effects">
+    <div class="glow glow-one"></div>
+    <div class="glow glow-two"></div>
+</div>
 
-    <section class="hero">
-      <div class="hero-grid">
-        <div>
-          <div class="badge">Telegram Business · Save Gram</div>
-          <h1>
-            Команды <span class="gradient-text">Save Gram</span><br>
-            для Telegram Business
-          </h1>
-          <p>
-            Современный набор команд для владельца подключённого Business-бота:
-            анимации текста, развлекательные команды и управление сообщениями
-            в личных чатах — в удобном и красивом интерфейсе.
-          </p>
 
-          <div class="hero-actions">
-            <a href="#commands" class="btn btn-primary">Открыть команды</a>
-            <a href="#help" class="btn btn-secondary">Условия использования</a>
-          </div>
-        </div>
+<header class="header">
 
-        <div class="hero-side">
-          <img src="logo.png" alt="Save Gram">
-          <div class="quick-stats">
-            <div class="quick-stat">
-              <strong>16 команд</strong>
-              <span>Анимации, развлечения и управление</span>
+    <div class="container nav">
+
+        <a href="#" class="brand">
+
+            <img src="logo.png" alt="Save Gram">
+
+            <div class="brand-info">
+                <strong>Save Gram</strong>
+                <span>Telegram Business</span>
             </div>
-            <div class="quick-stat">
-              <strong>2 секунды</strong>
-              <span>Интервал между командами</span>
-            </div>
-            <div class="quick-stat">
-              <strong>Business</strong>
-              <span>Только для владельца подключённого бота</span>
-            </div>
-            <div class="quick-stat">
-              <strong>One-click</strong>
-              <span>Быстрый поиск и копирование команд</span>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <div class="features" id="features">
-        <div class="feature-box">
-          <strong>Поиск по командам</strong>
-          <span>Моментально находи нужную команду через поиск.</span>
+        </a>
+
+
+        <nav class="nav-links">
+
+            <a href="#commands">Команды</a>
+            <a href="#features">Возможности</a>
+            <a href="#faq">FAQ</a>
+
+        </nav>
+
+
+        <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Сменить тему"
+        >
+
+            <svg
+                class="theme-icon sun-icon"
+                viewBox="0 0 24 24"
+            >
+                <circle cx="12" cy="12" r="4"></circle>
+                <path d="M12 2v2"></path>
+                <path d="M12 20v2"></path>
+                <path d="m4.93 4.93 1.41 1.41"></path>
+                <path d="m17.66 17.66 1.41 1.41"></path>
+                <path d="M2 12h2"></path>
+                <path d="M20 12h2"></path>
+                <path d="m6.34 17.66-1.41 1.41"></path>
+                <path d="m19.07 4.93-1.41 1.41"></path>
+            </svg>
+
+            <svg
+                class="theme-icon moon-icon"
+                viewBox="0 0 24 24"
+            >
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"></path>
+            </svg>
+
+        </button>
+
+    </div>
+
+</header>
+
+
+<main>
+
+    <!-- HERO -->
+
+    <section class="hero-section">
+
+        <div class="container">
+
+            <div class="hero">
+
+                <div class="hero-content">
+
+                    <div class="hero-badge">
+                        Telegram Business
+                    </div>
+
+                    <h1>
+                        Команды
+                        <span>Save Gram</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        Анимации, развлечения и управление чатами
+                        прямо через сообщения Telegram Business.
+                    </p>
+
+
+                    <div class="hero-buttons">
+
+                        <a
+                            href="#commands"
+                            class="button button-primary"
+                        >
+                            Открыть команды
+
+                            <svg viewBox="0 0 24 24">
+                                <path d="M5 12h14"></path>
+                                <path d="m13 6 6 6-6 6"></path>
+                            </svg>
+                        </a>
+
+
+                        <a
+                            href="#faq"
+                            class="button button-secondary"
+                        >
+                            Как это работает
+                        </a>
+
+                    </div>
+
+
+                    <div class="hero-meta">
+
+                        <div class="meta-item">
+
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M12 7v5l3 2"></path>
+                            </svg>
+
+                            <span>
+                                Интервал между командами:
+                                <strong>2 сек.</strong>
+                            </span>
+
+                        </div>
+
+
+                        <div class="meta-item">
+
+                            <svg viewBox="0 0 24 24">
+                                <rect x="3" y="5" width="18" height="14" rx="3"></rect>
+                                <path d="M8 5V3"></path>
+                                <path d="M16 5V3"></path>
+                            </svg>
+
+                            <span>
+                                Для владельца
+                                <strong>Business-бота</strong>
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="hero-preview">
+
+                    <div class="preview-glow"></div>
+
+                    <img
+                        src="logo.png"
+                        alt="Save Gram"
+                        class="hero-logo"
+                    >
+
+
+                    <div class="preview-stats">
+
+                        <div class="preview-stat">
+                            <strong>16</strong>
+                            <span>команд</span>
+                        </div>
+
+                        <div class="preview-stat">
+                            <strong>3</strong>
+                            <span>категории</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="preview-command">
+
+                        <div class="preview-command-top">
+
+                            <span class="preview-dot"></span>
+
+                            <span>Пример команды</span>
+
+                        </div>
+
+                        <code>.ghost Секрет 10</code>
+
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
-        <div class="feature-box">
-          <strong>Фильтры</strong>
-          <span>Разделение на анимации, развлечения и управление.</span>
-        </div>
-        <div class="feature-box">
-          <strong>Копирование в один клик</strong>
-          <span>Нажал кнопку — команда уже в буфере обмена.</span>
-        </div>
-        <div class="feature-box">
-          <strong>Минимализм</strong>
-          <span>Чистый SaaS-дизайн, мягкие тени и белые иконки.</span>
-        </div>
-      </div>
+
     </section>
 
-    <section class="section" id="commands">
-      <div class="section-top">
-        <div class="section-title">
-          <h2>Все команды</h2>
-          <p>
-            Используй поиск и фильтры, чтобы быстро найти нужную команду
-            и сразу скопировать её.
-          </p>
+
+    <!-- FEATURES -->
+
+    <section
+        class="section"
+        id="features"
+    >
+
+        <div class="container">
+
+            <div class="features-grid">
+
+                <div class="feature-card reveal">
+
+                    <div class="feature-icon">
+
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="11" cy="11" r="7"></circle>
+                            <path d="m20 20-4-4"></path>
+                        </svg>
+
+                    </div>
+
+                    <h3>Быстрый поиск</h3>
+
+                    <p>
+                        Найди любую команду по названию
+                        или назначению за несколько секунд.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card reveal">
+
+                    <div class="feature-icon">
+
+                        <svg viewBox="0 0 24 24">
+                            <path d="M4 6h16"></path>
+                            <path d="M7 12h10"></path>
+                            <path d="M10 18h4"></path>
+                        </svg>
+
+                    </div>
+
+                    <h3>Удобные фильтры</h3>
+
+                    <p>
+                        Быстро переключайся между анимациями,
+                        развлечениями и управлением.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card reveal">
+
+                    <div class="feature-icon">
+
+                        <svg viewBox="0 0 24 24">
+                            <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+
+                    </div>
+
+                    <h3>Копирование</h3>
+
+                    <p>
+                        Скопируй нужную команду
+                        одним нажатием.
+                    </p>
+
+                </div>
+
+            </div>
+
         </div>
 
-        <div class="counter-chip">16 команд</div>
-      </div>
-
-      <div class="toolbar">
-        <div class="search">
-          <svg class="search-icon" viewBox="0 0 24 24" fill="none">
-            <path d="M21 21L16.65 16.65M10.5 18C6.35786 18 3 14.6421 3 10.5C3 6.35786 6.35786 3 10.5 3C14.6421 3 18 6.35786 18 10.5C18 14.6421 14.6421 18 10.5 18Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <input id="searchInput" type="text" placeholder="Найти команду: .ghost, .mute, .love...">
-        </div>
-
-        <div class="filters">
-          <button class="filter-btn active" data-filter="all">Все</button>
-          <button class="filter-btn" data-filter="animation">Анимации</button>
-          <button class="filter-btn" data-filter="fun">Развлечения</button>
-          <button class="filter-btn" data-filter="control">Управление</button>
-        </div>
-      </div>
-
-      <div class="commands-grid" id="commandsGrid">
-
-        <article class="command-card" data-category="animation" data-search=".l текст слева направо печатает">
-          <div class="card-top">
-            <div class="icon-wrap">
-              <svg viewBox="0 0 24 24"><path d="M4 12h11"/><path d="M4 6h16"/><path d="M4 18h8"/><path d="M18 10l2 2-2 2"/></svg>
-            </div>
-            <div class="tag">Анимация</div>
-          </div>
-          <div class="command-title">Печать слева направо</div>
-          <div class="code-row">
-            <div class="code-box">.l текст</div>
-            <button class="copy-btn" data-copy=".l текст">Копировать</button>
-          </div>
-          <div class="desc">Печатает текст слева направо, создавая эффект набора сообщения.</div>
-          <div class="example">
-            <span class="label">Пример</span>
-            <code class="example-code">.l Привет, как дела?</code>
-          </div>
-        </article>
-
-        <article class="command-card" data-category="animation" data-search=".r текст справа налево печатает">
-          <div class="card-top">
-            <div class="icon-wrap">
-              <svg viewBox="0 0 24 24"><path d="M20 12H9"/><path d="M20 6H4"/><path d="M20 18h-8"/><path d="M6 10l-2 2 2 2"/></svg>
-            </div>
-            <div class="tag">Анимация</div>
-          </div>
-          <div class="command-title">Печать справа налево</div>
-          <div class="code-row">
-            <div class="code-box">.r текст</div>
-            <button class="copy-btn" data-copy=".r текст">Копировать</button>
-          </div>
-          <div class="desc">Показывает текст с эффектом появления справа налево.</div>
-          <div class="example">
-            <span class="label">Пример</span>
-            <code class="example-code">.r Уже иду</code>
-          </div>
-        </article>
-
-        <article class="command-card" data-category="animation" data-search=".erase текст стирает">
-          <div class="card-top">
-            <div class="icon-wrap">
-              <svg viewBox="0 0 24 24"><path d="M20 20H9"/><path d="M13 4l7 7"/><path d="M3 14l7 7"/><path d="M10 7l7 7"/><path d="M3 14l7-7h4"/></svg>
-            </div>
-            <div class="tag">Анимация</div>
-          </div>
-          <div class="command-title">Стирание текста</div>
-          <div class="code-row">
-            <div class="code-box">.erase текст</div>
-            <button class="copy-btn" data-copy=".erase текст">Копировать</button>
-          </div>
-          <div class="desc">Показывает текст и постепенно стирает его, создавая эффект исчезновения.</div>
-          <div class="example">
-            <span class="label">Пример</span>
-            <code class="example-code">.erase Сейчас исчезну</code>
-          </div>
-        </article>
-
-        <article class="command-card" data-category="animation" data-search=".count текст отсчёт">
-          <div class="card-top">
-            <div class="icon-wrap">
-              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v5l3 2"/></svg>
-            </div>
-            <div class="tag">Анимация</div>
-          </div>
-          <div class="command-title">Отсчёт перед текстом</div>
-          <div class="code-row">
-            <div class="code-box">.count текст</div>
-            <button class="copy-btn" data-copy=".count текст">Копировать</button>
-          </div>
-          <div class="desc">Показывает отсчёт 3… 2… 1… и затем выводит текст.</div>
-          <div class="example">
-            <span class="label">Пример</span>
-            <code class="example-code">.count Поехали</code>
-          </div>
-        </article>
-
-        <article class="command-card" data-category="animation" data-search=".love текст сердце">
-          <div class="card-top">
-            <div class="icon-wrap">
-              <svg viewBox="0 0 24 24"><path d="M12 20s-6.5-4.35-8.5-8A5.1 5.1 0 0 1 12 5a5.1 5.1 0 0 1 8.5 7c-2 3.65-8.5 8-8.5 8Z"/></svg>
-            </div>
-            <div class="tag">Анимация</div>
-          </div>
-          <div class="command-title">Сердце + текст</div>
-          <div class="code-row">
-            <div class="code-box">.love текст</div>
-            <button class="copy-btn" data-copy=".love текст">Копировать</button>
-          </div>
-          <div class="desc">Показывает небольшую анимацию сердца, а затем сам текст.</div>
-          <div class="example">
-            <span class="label">Пример</span>
-            <code class="example-code">.love Ты лучшая</code>
-          </div>
-        </article>
-
-        <article class="command-card" data-category="fun" data-search=".percent текст случайный процент">
-          <div class="card-top">
-            <div class="icon-wrap">
-              <svg viewBox="0 0 24 24"><path d="M19 5L5 19"/><circle cx="7" cy="7" r="2"/><circle cx="17" cy="17" r="2"/></svg>
-            </div>
-            <div class="tag">Развлечение</div>
-          </div>
-          <div class="command-title">Случайный процент</div>
-          <div class="code-row">
-            <div class="code-box">.percent текст</div>
-            <button class="copy-btn" data-copy=".percent текст">Копировать</button>
-          </div>
-          <div class="desc">Добавляет к введённому тексту случайный процентный результат.</div>
-          <div class="example">
-            <span class="label">Пример</span>
-            <code class="example-code">.percent Красивость</code>
-          </div>
-        </article>
-
-        <article class="command-card" data-category="animation" data-search=".boom текст взрыв">
-          <div class="card-top">
-            <div class="icon-wrap">
-              <svg viewBox="0 0 24 24"><path d="M13 3L4 14h6l-1 7 9-11h-6l1-7Z"/></svg>
-            </div>
-            <div class="tag">Анимация</div>
-          </div>
-          <div class="command-title">Взрывной вывод текста</div>
-          <div class="code-row">
-            <div class="code-box">.boom текст</div>
-            <button class="copy-btn" data-copy=".boom текст">Копировать</button>
-          </div>
-          <div class="desc">Показывает отсчёт 3… 2… 1… и затем эффектное появление текста.</div>
-          <div class="example">
-            <span class="label">Пример</span>
-            <code class="example-code">.boom Появился!</code>
-          </div>
-        </article>
-
-        <article class="command-card" data-category="animation" data-search=".shuffle текст перемешивает буквы">
-          <div class="card-top">
-            <div class="icon-wrap">
-              <svg viewBox="0 0 24 24"><path d="M16 3h5v5"/><path d="M4 20l8-8"/><path d="M20 8l-4-4"/><path d="M16 21h5v-5"/><path d="M4 4l8 8"/><path d="M20 16l-4 4"/></svg>
-            </div>
-            <div class="tag">Анимация</div>
-          </div>
-          <div class="command-title">Перемешивание букв</div>
-          <div class="code-row">
-            <div class="code-box">.shuffle текст</div>
-            <button class="copy-btn" data-copy=".shuffle текст">Копировать</button>
-          </div>
-          <div class="desc">Перемешивает буквы и постепенно собирает исходный текст обратно.</div>
-          <div class="example">
-            <span class="label">Пример</span>
-            <code class="example-code">.shuffle Секретное сообщение</code>
-          </div>
-        </article>
-
-        <article class="command-card" data-category="fun" data-search=".ship имя1 имя2 совместимость">
-          <div class="card-top">
-            <div class="icon-wrap">
-              <svg viewBox="0 0 24 24"><path d="M12 21s-6-4-8-7.5C2.2 10.8 4 7 7.5 7c1.8 0 3.1.9 4.5 2.4C13.4 7.9 14.7 7 16.5 7 20 7 21.8 10.8 20 13.5 18 17 12 21 12 21Z"/><path d="M8 3v4"/><path d="M16 3v4"/></svg>
-            </div>
-            <div class="tag">Развлечение</div>
-          </div>
-          <div class="command-title">Процент совместимости</div>
-          <div class="code-row">
-            <div class="code-box">.ship имя1 имя2</div>
-            <button class="copy-btn" data-copy=".ship имя1 имя2">Копировать</button>
-          </div>
-          <div class="desc">Показывает случайный процент совместимости между двумя именами.</div>
-          <div class="example">
-            <span class="label">Пример</span>
-            <code class="example-code">.ship Алиса Максим</code>
-          </div>
-        </article>
-
-        <article class="command-card" data-category="fun" data-search=".iq имя iq рейтинг">
-          <div class="card-top">
-            <div class="icon-wrap">
-              <svg viewBox="0 0 24 24"><path d="M9.5 18h5"/><path d="M10 22h4"/><path d="M8 14c-1.2-1-2-2.6-2-4.3A6 6 0 0 1 12 4a6 6 0 0 1 6 5.7c0 1.7-.8 3.3-2 4.3-.7.6-1 1.1-1.2 1.6H9.2C9 15.1 8.7 14.6 8 14Z"/></svg>
-            </div>
-            <div class="tag">Развлечение</div>
-          </div>
-          <div class="command-title">Шуточный IQ</div>
-          <div class="code-row">
-            <div class="code-box">.iq имя</div>
-            <button class="copy-btn" data-copy=".iq имя">Копировать</button>
-          </div>
-          <div class="desc">Показывает шуточный случайный IQ-рейтинг для указанного имени.</div>
-          <div class="example">
-            <span class="label">Пример</span>
-            <code class="example-code">.iq Иван</code>
-          </div>
-        </article>
-
-        <article class="command-card" data-category="fun" data-search=".luck удача на сегодня">
-          <div class="card-top">
-            <div class="icon-wrap">
-              <svg viewBox="0 0 24 24"><path d="M10 3c0 3-2 5-5 5 0 4 3 7 7 7h1c4 0 7-3 7-7-3 0-5-2-5-5H10Z"/><path d="M12 15v6"/><path d="M9 21h6"/></svg>
-            </div>
-            <div class="tag">Развлечение</div>
-          </div>
-          <div class="command-title">Удача на сегодня</div>
-          <div class="code-row">
-            <div class="code-box">.luck</div>
-            <button class="copy-btn" data-copy=".luck">Копировать</button>
-          </div>
-          <div class="desc">Показывает случайный уровень удачи на сегодня от 0 до 100%.</div>
-          <div class="example">
-            <span class="label">Пример</span>
-            <code class="example-code">.luck</code>
-          </div>
-        </article>
-
-        <article class="command-card" data-category="fun" data-search=".randomcase текст регистр букв">
-          <div class="card-top">
-            <div class="icon-wrap">
-              <svg viewBox="0 0 24 24"><path d="M5 19l4-12 4 12"/><path d="M6.3 15h5.4"/><path d="M16 10h4a2 2 0 0 1 0 4h-4v-4Z"/><path d="M16 14h4.5a2 2 0 0 1 0 4H16v-8Z"/></svg>
-            </div>
-            <div class="tag">Развлечение</div>
-          </div>
-          <div class="command-title">Случайный регистр</div>
-          <div class="code-row">
-            <div class="code-box">.randomcase текст</div>
-            <button class="copy-btn" data-copy=".randomcase текст">Копировать</button>
-          </div>
-          <div class="desc">Случайным образом меняет регистр букв в сообщении.</div>
-          <div class="example">
-            <span class="label">Пример</span>
-            <code class="example-code">.randomcase Это тестовая фраза</code>
-          </div>
-        </article>
-
-        <article class="command-card" data-category="animation" data-search=".ghost текст секунды исчезающее сообщение">
-          <div class="card-top">
-            <div class="icon-wrap">
-              <svg viewBox="0 0 24 24"><path d="M9 21v-2a3 3 0 0 1 6 0v2"/><path d="M5 10a7 7 0 1 1 14 0v9l-3-2-2 2-2-2-2 2-2-2-3 2v-9Z"/><path d="M9 10h.01"/><path d="M15 10h.01"/></svg>
-            </div>
-            <div class="tag">Анимация</div>
-          </div>
-          <div class="command-title">Исчезающее сообщение</div>
-          <div class="code-row">
-            <div class="code-box">.ghost текст [секунды]</div>
-            <button class="copy-btn" data-copy=".ghost текст [секунды]">Копировать</button>
-          </div>
-          <div class="desc">Показывает текст и через заданное время заменяет его на «Сообщение исчезло».</div>
-          <div class="example">
-            <span class="label">Пример</span>
-            <code class="example-code">.ghost Это секрет 10</code>
-          </div>
-          <div class="note">По умолчанию — 5 секунд. Допустимый диапазон: от 3 до 180 секунд.</div>
-        </article>
-
-        <article class="command-card" data-category="control" data-search=".mute удаление новых сообщений собеседника">
-          <div class="card-top">
-            <div class="icon-wrap">
-              <svg viewBox="0 0 24 24"><path d="M11 5L6 9H3v6h3l5 4V5Z"/><path d="M19 9l-6 6"/></svg>
-            </div>
-            <div class="tag">Управление</div>
-          </div>
-          <div class="command-title">Включить мут</div>
-          <div class="code-row">
-            <div class="code-box">.mute</div>
-            <button class="copy-btn" data-copy=".mute">Копировать</button>
-          </div>
-          <div class="desc">Включает удаление новых сообщений собеседника в текущем Business-чате.</div>
-          <div class="example">
-            <span class="label">Пример</span>
-            <code class="example-code">.mute</code>
-          </div>
-          <div class="note">Требуется право удаления всех сообщений.</div>
-        </article>
-
-        <article class="command-card" data-category="control" data-search=".unmute отключает режим мута">
-          <div class="card-top">
-            <div class="icon-wrap">
-              <svg viewBox="0 0 24 24"><path d="M11 5L6 9H3v6h3l5 4V5Z"/><path d="M16 9a5 5 0 0 1 0 6"/><path d="M19 7a8 8 0 0 1 0 10"/></svg>
-            </div>
-            <div class="tag">Управление</div>
-          </div>
-          <div class="command-title">Отключить мут</div>
-          <div class="code-row">
-            <div class="code-box">.unmute</div>
-            <button class="copy-btn" data-copy=".unmute">Копировать</button>
-          </div>
-          <div class="desc">Отключает режим мута в текущем Business-чате.</div>
-          <div class="example">
-            <span class="label">Пример</span>
-            <code class="example-code">.unmute</code>
-          </div>
-        </article>
-
-        <article class="command-card" data-category="control" data-search=".antimute ограничение telegram">
-          <div class="card-top">
-            <div class="icon-wrap">
-              <svg viewBox="0 0 24 24"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/></svg>
-            </div>
-            <div class="tag">Управление</div>
-          </div>
-          <div class="command-title">Информация об antimute</div>
-          <div class="code-row">
-            <div class="code-box">.antimute</div>
-            <button class="copy-btn" data-copy=".antimute">Копировать</button>
-          </div>
-          <div class="desc">Показывает ограничение Telegram: нельзя запретить удаление сообщений ботом другого аккаунта.</div>
-          <div class="example">
-            <span class="label">Пример</span>
-            <code class="example-code">.antimute</code>
-          </div>
-        </article>
-
-      </div>
-
-      <div class="info-note" id="help">
-        <strong>Важно:</strong> команды доступны владельцу подключённого Business-бота
-        в личных чатах. Между командами действует интервал <strong>2 секунды</strong>.
-        Для команды <strong>.mute</strong> необходимо право удаления всех сообщений.
-        Для <strong>.ghost</strong> допустимое время — от <strong>3 до 180 секунд</strong>.
-      </div>
     </section>
 
-    <footer class="footer">
-      <div class="footer-box">
-        <div class="footer-brand">
-          <img src="logo.png" alt="Save Gram">
-          <div>
-            <strong>Save Gram</strong>
-            <span>Modern Telegram Business experience</span>
-          </div>
+
+    <!-- COMMANDS -->
+
+    <section
+        class="section commands-section"
+        id="commands"
+    >
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        COMMAND LIBRARY
+                    </span>
+
+                    <h2>
+                        Все команды
+                    </h2>
+
+                    <p>
+                        Используй поиск, фильтры или просто
+                        выбери нужную команду.
+                    </p>
+
+                </div>
+
+
+                <div class="command-counter">
+                    16 команд
+                </div>
+
+            </div>
+
+
+            <div class="command-toolbar">
+
+                <div class="search-wrapper">
+
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="11" cy="11" r="7"></circle>
+                        <path d="m20 20-4-4"></path>
+                    </svg>
+
+                    <input
+                        id="searchInput"
+                        type="text"
+                        placeholder="Поиск: .ghost, .mute, .love..."
+                    >
+
+                </div>
+
+
+                <div class="filters">
+
+                    <button
+                        class="filter active"
+                        data-filter="all"
+                    >
+                        Все
+                    </button>
+
+                    <button
+                        class="filter"
+                        data-filter="animation"
+                    >
+                        Анимации
+                    </button>
+
+                    <button
+                        class="filter"
+                        data-filter="fun"
+                    >
+                        Развлечения
+                    </button>
+
+                    <button
+                        class="filter"
+                        data-filter="control"
+                    >
+                        Управление
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="commands-grid">
+
+                <!-- .l -->
+
+                <article
+                    class="command-card reveal"
+                    data-category="animation"
+                    data-search=".l текст слева направо печать"
+                >
+
+                    <div class="card-header">
+
+                        <div class="command-icon">
+
+                            <svg viewBox="0 0 24 24">
+                                <path d="M4 6h16"></path>
+                                <path d="M4 12h11"></path>
+                                <path d="M4 18h8"></path>
+                                <path d="m18 10 2 2-2 2"></path>
+                            </svg>
+
+                        </div>
+
+                        <span class="command-category">
+                            Анимация
+                        </span>
+
+                    </div>
+
+
+                    <h3>
+                        Печать слева направо
+                    </h3>
+
+
+                    <div class="command-code-row">
+
+                        <code>
+                            .l текст
+                        </code>
+
+                        <button
+                            class="copy-button"
+                            data-copy=".l текст"
+                        >
+
+                            <svg viewBox="0 0 24 24">
+                                <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+
+                        </button>
+
+                    </div>
+
+
+                    <p>
+                        Печатает текст слева направо,
+                        создавая эффект набора сообщения.
+                    </p>
+
+
+                    <div class="command-example">
+
+                        <span>Пример</span>
+
+                        <code>
+                            .l Привет, как дела?
+                        </code>
+
+                    </div>
+
+                </article>
+
+
+                <!-- .r -->
+
+                <article
+                    class="command-card reveal"
+                    data-category="animation"
+                    data-search=".r текст справа налево"
+                >
+
+                    <div class="card-header">
+
+                        <div class="command-icon">
+
+                            <svg viewBox="0 0 24 24">
+                                <path d="M20 6H4"></path>
+                                <path d="M20 12H9"></path>
+                                <path d="M20 18h-8"></path>
+                                <path d="m6 10-2 2 2 2"></path>
+                            </svg>
+
+                        </div>
+
+                        <span class="command-category">
+                            Анимация
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Печать справа налево
+                    </h3>
+
+                    <div class="command-code-row">
+
+                        <code>
+                            .r текст
+                        </code>
+
+                        <button
+                            class="copy-button"
+                            data-copy=".r текст"
+                        >
+
+                            <svg viewBox="0 0 24 24">
+                                <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+
+                        </button>
+
+                    </div>
+
+                    <p>
+                        Печатает текст справа налево.
+                    </p>
+
+                    <div class="command-example">
+
+                        <span>Пример</span>
+
+                        <code>
+                            .r Уже иду
+                        </code>
+
+                    </div>
+
+                </article>
+
+
+                <!-- erase -->
+
+                <article
+                    class="command-card reveal"
+                    data-category="animation"
+                    data-search=".erase стирает текст"
+                >
+
+                    <div class="card-header">
+
+                        <div class="command-icon">
+
+                            <svg viewBox="0 0 24 24">
+                                <path d="M3 16 14 5l6 6-8 8H6Z"></path>
+                                <path d="M14 19h7"></path>
+                            </svg>
+
+                        </div>
+
+                        <span class="command-category">
+                            Анимация
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Стирание текста
+                    </h3>
+
+                    <div class="command-code-row">
+
+                        <code>
+                            .erase текст
+                        </code>
+
+                        <button
+                            class="copy-button"
+                            data-copy=".erase текст"
+                        >
+
+                            <svg viewBox="0 0 24 24">
+                                <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+
+                        </button>
+
+                    </div>
+
+                    <p>
+                        Показывает текст и постепенно
+                        стирает его.
+                    </p>
+
+                    <div class="command-example">
+
+                        <span>Пример</span>
+
+                        <code>
+                            .erase Сейчас исчезну
+                        </code>
+
+                    </div>
+
+                </article>
+
+
+                <!-- count -->
+
+                <article
+                    class="command-card reveal"
+                    data-category="animation"
+                    data-search=".count отсчет 3 2 1"
+                >
+
+                    <div class="card-header">
+
+                        <div class="command-icon">
+
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M12 7v5l3 2"></path>
+                            </svg>
+
+                        </div>
+
+                        <span class="command-category">
+                            Анимация
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Отсчёт
+                    </h3>
+
+                    <div class="command-code-row">
+
+                        <code>
+                            .count текст
+                        </code>
+
+                        <button
+                            class="copy-button"
+                            data-copy=".count текст"
+                        >
+
+                            <svg viewBox="0 0 24 24">
+                                <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+
+                        </button>
+
+                    </div>
+
+                    <p>
+                        Показывает 3… 2… 1…,
+                        после чего выводит текст.
+                    </p>
+
+                    <div class="command-example">
+                        <span>Пример</span>
+                        <code>.count Поехали</code>
+                    </div>
+
+                </article>
+
+
+                <!-- love -->
+
+                <article
+                    class="command-card reveal"
+                    data-category="animation"
+                    data-search=".love сердце текст"
+                >
+
+                    <div class="card-header">
+
+                        <div class="command-icon">
+
+                            <svg viewBox="0 0 24 24">
+                                <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"></path>
+                            </svg>
+
+                        </div>
+
+                        <span class="command-category">
+                            Анимация
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Анимация сердца
+                    </h3>
+
+                    <div class="command-code-row">
+
+                        <code>
+                            .love текст
+                        </code>
+
+                        <button
+                            class="copy-button"
+                            data-copy=".love текст"
+                        >
+
+                            <svg viewBox="0 0 24 24">
+                                <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+
+                        </button>
+
+                    </div>
+
+                    <p>
+                        Показывает анимацию сердца,
+                        а затем текст.
+                    </p>
+
+                    <div class="command-example">
+                        <span>Пример</span>
+                        <code>.love Ты лучшая</code>
+                    </div>
+
+                </article>
+
+
+                <!-- percent -->
+
+                <article
+                    class="command-card reveal"
+                    data-category="fun"
+                    data-search=".percent случайный процент"
+                >
+
+                    <div class="card-header">
+
+                        <div class="command-icon">
+
+                            <svg viewBox="0 0 24 24">
+                                <path d="M19 5 5 19"></path>
+                                <circle cx="7" cy="7" r="2"></circle>
+                                <circle cx="17" cy="17" r="2"></circle>
+                            </svg>
+
+                        </div>
+
+                        <span class="command-category">
+                            Развлечение
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Случайный процент
+                    </h3>
+
+                    <div class="command-code-row">
+
+                        <code>
+                            .percent текст
+                        </code>
+
+                        <button
+                            class="copy-button"
+                            data-copy=".percent текст"
+                        >
+
+                            <svg viewBox="0 0 24 24">
+                                <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+
+                        </button>
+
+                    </div>
+
+                    <p>
+                        Добавляет к тексту
+                        случайный процент.
+                    </p>
+
+                    <div class="command-example">
+                        <span>Пример</span>
+                        <code>.percent Красивость</code>
+                    </div>
+
+                </article>
+
+
+                <!-- boom -->
+
+                <article
+                    class="command-card reveal"
+                    data-category="animation"
+                    data-search=".boom взрыв 3 2 1"
+                >
+
+                    <div class="card-header">
+
+                        <div class="command-icon">
+
+                            <svg viewBox="0 0 24 24">
+                                <path d="m13 2-2 7h6l-8 13 2-9H5Z"></path>
+                            </svg>
+
+                        </div>
+
+                        <span class="command-category">
+                            Анимация
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Взрывной отсчёт
+                    </h3>
+
+                    <div class="command-code-row">
+
+                        <code>
+                            .boom текст
+                        </code>
+
+                        <button
+                            class="copy-button"
+                            data-copy=".boom текст"
+                        >
+
+                            <svg viewBox="0 0 24 24">
+                                <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+
+                        </button>
+
+                    </div>
+
+                    <p>
+                        Показывает 3… 2… 1… 💥,
+                        а затем текст.
+                    </p>
+
+                    <div class="command-example">
+                        <span>Пример</span>
+                        <code>.boom Появился!</code>
+                    </div>
+
+                </article>
+
+
+                <!-- shuffle -->
+
+                <article
+                    class="command-card reveal"
+                    data-category="animation"
+                    data-search=".shuffle перемешивает буквы"
+                >
+
+                    <div class="card-header">
+
+                        <div class="command-icon">
+
+                            <svg viewBox="0 0 24 24">
+                                <path d="M16 3h5v5"></path>
+                                <path d="M4 20 21 3"></path>
+                                <path d="M21 16v5h-5"></path>
+                                <path d="m15 15 6 6"></path>
+                                <path d="m4 4 5 5"></path>
+                            </svg>
+
+                        </div>
+
+                        <span class="command-category">
+                            Анимация
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Перемешивание букв
+                    </h3>
+
+                    <div class="command-code-row">
+
+                        <code>
+                            .shuffle текст
+                        </code>
+
+                        <button
+                            class="copy-button"
+                            data-copy=".shuffle текст"
+                        >
+
+                            <svg viewBox="0 0 24 24">
+                                <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+
+                        </button>
+
+                    </div>
+
+                    <p>
+                        Перемешивает буквы,
+                        постепенно собирая исходный текст.
+                    </p>
+
+                    <div class="command-example">
+                        <span>Пример</span>
+                        <code>.shuffle Привет</code>
+                    </div>
+
+                </article>
+
+
+                <!-- ship -->
+
+                <article
+                    class="command-card reveal"
+                    data-category="fun"
+                    data-search=".ship совместимость имена"
+                >
+
+                    <div class="card-header">
+
+                        <div class="command-icon">
+
+                            <svg viewBox="0 0 24 24">
+                                <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"></path>
+                            </svg>
+
+                        </div>
+
+                        <span class="command-category">
+                            Развлечение
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Совместимость
+                    </h3>
+
+                    <div class="command-code-row">
+
+                        <code>
+                            .ship имя1 имя2
+                        </code>
+
+                        <button
+                            class="copy-button"
+                            data-copy=".ship имя1 имя2"
+                        >
+
+                            <svg viewBox="0 0 24 24">
+                                <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+
+                        </button>
+
+                    </div>
+
+                    <p>
+                        Показывает случайный процент
+                        совместимости двух имён.
+                    </p>
+
+                    <div class="command-example">
+                        <span>Пример</span>
+                        <code>.ship Алиса Максим</code>
+                    </div>
+
+                </article>
+
+
+                <!-- iq -->
+
+                <article
+                    class="command-card reveal"
+                    data-category="fun"
+                    data-search=".iq рейтинг имя"
+                >
+
+                    <div class="card-header">
+
+                        <div class="command-icon">
+
+                            <svg viewBox="0 0 24 24">
+                                <path d="M9 18h6"></path>
+                                <path d="M10 22h4"></path>
+                                <path d="M8 14a6 6 0 1 1 8 0c-1 .8-1.4 1.6-1.5 2H9.5c-.1-.4-.5-1.2-1.5-2Z"></path>
+                            </svg>
+
+                        </div>
+
+                        <span class="command-category">
+                            Развлечение
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        IQ-рейтинг
+                    </h3>
+
+                    <div class="command-code-row">
+
+                        <code>
+                            .iq имя
+                        </code>
+
+                        <button
+                            class="copy-button"
+                            data-copy=".iq имя"
+                        >
+
+                            <svg viewBox="0 0 24 24">
+                                <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+
+                        </button>
+
+                    </div>
+
+                    <p>
+                        Показывает шуточный
+                        случайный IQ-рейтинг.
+                    </p>
+
+                    <div class="command-example">
+                        <span>Пример</span>
+                        <code>.iq Алекс</code>
+                    </div>
+
+                </article>
+
+
+                <!-- luck -->
+
+                <article
+                    class="command-card reveal"
+                    data-category="fun"
+                    data-search=".luck удача сегодня"
+                >
+
+                    <div class="card-header">
+
+                        <div class="command-icon">
+
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="9" cy="9" r="4"></circle>
+                                <circle cx="15" cy="9" r="4"></circle>
+                                <circle cx="9" cy="15" r="4"></circle>
+                                <circle cx="15" cy="15" r="4"></circle>
+                            </svg>
+
+                        </div>
+
+                        <span class="command-category">
+                            Развлечение
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Удача на сегодня
+                    </h3>
+
+                    <div class="command-code-row">
+
+                        <code>
+                            .luck
+                        </code>
+
+                        <button
+                            class="copy-button"
+                            data-copy=".luck"
+                        >
+
+                            <svg viewBox="0 0 24 24">
+                                <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+
+                        </button>
+
+                    </div>
+
+                    <p>
+                        Показывает удачу на сегодня
+                        от 0 до 100%.
+                    </p>
+
+                    <div class="command-example">
+                        <span>Пример</span>
+                        <code>.luck</code>
+                    </div>
+
+                </article>
+
+
+                <!-- randomcase -->
+
+                <article
+                    class="command-card reveal"
+                    data-category="fun"
+                    data-search=".randomcase регистр букв"
+                >
+
+                    <div class="card-header">
+
+                        <div class="command-icon">
+
+                            <svg viewBox="0 0 24 24">
+                                <path d="M4 18 9 6l5 12"></path>
+                                <path d="M6 14h6"></path>
+                                <path d="M16 10h4"></path>
+                                <path d="M18 8v4"></path>
+                                <path d="M16 18h4"></path>
+                            </svg>
+
+                        </div>
+
+                        <span class="command-category">
+                            Развлечение
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Случайный регистр
+                    </h3>
+
+                    <div class="command-code-row">
+
+                        <code>
+                            .randomcase текст
+                        </code>
+
+                        <button
+                            class="copy-button"
+                            data-copy=".randomcase текст"
+                        >
+
+                            <svg viewBox="0 0 24 24">
+                                <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+
+                        </button>
+
+                    </div>
+
+                    <p>
+                        Случайно меняет регистр
+                        букв в тексте.
+                    </p>
+
+                    <div class="command-example">
+                        <span>Пример</span>
+                        <code>.randomcase Привет</code>
+                    </div>
+
+                </article>
+
+
+                <!-- ghost -->
+
+                <article
+                    class="command-card reveal"
+                    data-category="animation"
+                    data-search=".ghost исчезающее сообщение секунды"
+                >
+
+                    <div class="card-header">
+
+                        <div class="command-icon">
+
+                            <svg viewBox="0 0 24 24">
+                                <path d="M5 11a7 7 0 0 1 14 0v9l-3-2-2 2-2-2-2 2-2-2-3 2Z"></path>
+                                <path d="M9 10h.01"></path>
+                                <path d="M15 10h.01"></path>
+                            </svg>
+
+                        </div>
+
+                        <span class="command-category">
+                            Анимация
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Исчезающее сообщение
+                    </h3>
+
+                    <div class="command-code-row">
+
+                        <code>
+                            .ghost текст [секунды]
+                        </code>
+
+                        <button
+                            class="copy-button"
+                            data-copy=".ghost текст [секунды]"
+                        >
+
+                            <svg viewBox="0 0 24 24">
+                                <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+
+                        </button>
+
+                    </div>
+
+                    <p>
+                        Через заданное время заменяет
+                        текст на «👻 Сообщение исчезло».
+                    </p>
+
+                    <div class="command-example">
+                        <span>Пример</span>
+                        <code>.ghost Секрет 10</code>
+                    </div>
+
+                    <div class="command-note">
+                        От 3 до 180 секунд. По умолчанию — 5.
+                    </div>
+
+                </article>
+
+
+                <!-- mute -->
+
+                <article
+                    class="command-card reveal"
+                    data-category="control"
+                    data-search=".mute удаление сообщений собеседника"
+                >
+
+                    <div class="card-header">
+
+                        <div class="command-icon">
+
+                            <svg viewBox="0 0 24 24">
+                                <path d="M11 5 6 9H3v6h3l5 4Z"></path>
+                                <path d="m19 9-6 6"></path>
+                            </svg>
+
+                        </div>
+
+                        <span class="command-category">
+                            Управление
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Включить мут
+                    </h3>
+
+                    <div class="command-code-row">
+
+                        <code>
+                            .mute
+                        </code>
+
+                        <button
+                            class="copy-button"
+                            data-copy=".mute"
+                        >
+
+                            <svg viewBox="0 0 24 24">
+                                <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+
+                        </button>
+
+                    </div>
+
+                    <p>
+                        Удаляет новые сообщения собеседника
+                        в текущем Business-чате.
+                    </p>
+
+                    <div class="command-note">
+                        Нужно право удаления всех сообщений.
+                    </div>
+
+                </article>
+
+
+                <!-- unmute -->
+
+                <article
+                    class="command-card reveal"
+                    data-category="control"
+                    data-search=".unmute отключение мута"
+                >
+
+                    <div class="card-header">
+
+                        <div class="command-icon">
+
+                            <svg viewBox="0 0 24 24">
+                                <path d="M11 5 6 9H3v6h3l5 4Z"></path>
+                                <path d="M16 9a5 5 0 0 1 0 6"></path>
+                                <path d="M19 7a8 8 0 0 1 0 10"></path>
+                            </svg>
+
+                        </div>
+
+                        <span class="command-category">
+                            Управление
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Отключить мут
+                    </h3>
+
+                    <div class="command-code-row">
+
+                        <code>
+                            .unmute
+                        </code>
+
+                        <button
+                            class="copy-button"
+                            data-copy=".unmute"
+                        >
+
+                            <svg viewBox="0 0 24 24">
+                                <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+
+                        </button>
+
+                    </div>
+
+                    <p>
+                        Отключает режим мута
+                        в текущем Business-чате.
+                    </p>
+
+                </article>
+
+
+                <!-- antimute -->
+
+                <article
+                    class="command-card reveal"
+                    data-category="control"
+                    data-search=".antimute telegram ограничение"
+                >
+
+                    <div class="card-header">
+
+                        <div class="command-icon">
+
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 9v4"></path>
+                                <path d="M12 17h.01"></path>
+                                <path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"></path>
+                            </svg>
+
+                        </div>
+
+                        <span class="command-category">
+                            Управление
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Anti-mute
+                    </h3>
+
+                    <div class="command-code-row">
+
+                        <code>
+                            .antimute
+                        </code>
+
+                        <button
+                            class="copy-button"
+                            data-copy=".antimute"
+                        >
+
+                            <svg viewBox="0 0 24 24">
+                                <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+
+                        </button>
+
+                    </div>
+
+                    <p>
+                        Показывает ограничение Telegram:
+                        запретить удаление сообщений ботом
+                        другого аккаунта невозможно.
+                    </p>
+
+                </article>
+
+            </div>
+
         </div>
-        <div class="footer-text">Минималистично · красиво · удобно</div>
-      </div>
-    </footer>
-  </div>
 
-  <script>
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const cards = document.querySelectorAll('.command-card');
-    const searchInput = document.getElementById('searchInput');
+    </section>
 
-    let activeFilter = 'all';
 
-    function applyFilters() {
-      const query = searchInput.value.trim().toLowerCase();
+    <!-- INFO -->
 
-      cards.forEach(card => {
-        const category = card.dataset.category;
-        const text = card.dataset.search.toLowerCase();
+    <section class="section">
 
-        const matchCategory = activeFilter === 'all' || category === activeFilter;
-        const matchSearch = text.includes(query);
+        <div class="container">
 
-        card.classList.toggle('hidden', !(matchCategory && matchSearch));
-      });
-    }
+            <div class="important-card reveal">
 
-    filterButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterButtons.forEach(item => item.classList.remove('active'));
-        btn.classList.add('active');
-        activeFilter = btn.dataset.filter;
-        applyFilters();
-      });
-    });
+                <div class="important-icon">
 
-    searchInput.addEventListener('input', applyFilters);
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="9"></circle>
+                        <path d="M12 8h.01"></path>
+                        <path d="M11 12h1v4h1"></path>
+                    </svg>
 
-    document.querySelectorAll('.copy-btn').forEach(btn => {
-      btn.addEventListener('click', async () => {
-        const text = btn.dataset.copy;
-        const oldText = btn.textContent;
+                </div>
 
-        try {
-          await navigator.clipboard.writeText(text);
-          btn.textContent = 'Скопировано';
-          btn.classList.add('copied');
+                <div>
 
-          setTimeout(() => {
-            btn.textContent = oldText;
-            btn.classList.remove('copied');
-          }, 1400);
-        } catch {
-          btn.textContent = 'Ошибка';
-          setTimeout(() => {
-            btn.textContent = oldText;
-          }, 1200);
-        }
-      });
-    });
-  </script>
+                    <strong>
+                        Важно
+                    </strong>
+
+                    <p>
+                        Команды доступны владельцу подключённого
+                        Business-бота в личных чатах.
+                        Между командами действует интервал
+                        <b>2 секунды</b>.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FAQ -->
+
+    <section
+        class="section faq-section"
+        id="faq"
+    >
+
+        <div class="container faq-container">
+
+            <div class="faq-header reveal">
+
+                <span class="section-label">
+                    FAQ
+                </span>
+
+                <h2>
+                    Частые вопросы
+                </h2>
+
+                <p>
+                    Всё основное о командах
+                    Save Gram и Telegram Business.
+                </p>
+
+            </div>
+
+
+            <div class="faq-list">
+
+
+                <div class="faq-item reveal">
+
+                    <button class="faq-question">
+
+                        <span>
+                            Кто может использовать эти команды?
+                        </span>
+
+                        <div class="faq-plus">
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                    </button>
+
+                    <div class="faq-answer">
+
+                        <p>
+                            Команды доступны владельцу аккаунта,
+                            к которому подключён Save Gram
+                            как Telegram Business-бот.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="faq-item reveal">
+
+                    <button class="faq-question">
+
+                        <span>
+                            Где работают команды?
+                        </span>
+
+                        <div class="faq-plus">
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                    </button>
+
+                    <div class="faq-answer">
+
+                        <p>
+                            Команды используются в личных чатах
+                            через подключение Telegram Business.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="faq-item reveal">
+
+                    <button class="faq-question">
+
+                        <span>
+                            Почему между командами есть задержка?
+                        </span>
+
+                        <div class="faq-plus">
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                    </button>
+
+                    <div class="faq-answer">
+
+                        <p>
+                            Между командами установлен интервал
+                            2 секунды для стабильной работы
+                            и защиты от слишком частых запросов.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="faq-item reveal">
+
+                    <button class="faq-question">
+
+                        <span>
+                            Как работает .ghost?
+                        </span>
+
+                        <div class="faq-plus">
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                    </button>
+
+                    <div class="faq-answer">
+
+                        <p>
+                            Команда показывает указанный текст,
+                            а затем через выбранное время заменяет
+                            его на сообщение «👻 Сообщение исчезло».
+                            Можно указать от 3 до 180 секунд.
+                            По умолчанию используется 5 секунд.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="faq-item reveal">
+
+                    <button class="faq-question">
+
+                        <span>
+                            Что нужно для команды .mute?
+                        </span>
+
+                        <div class="faq-plus">
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                    </button>
+
+                    <div class="faq-answer">
+
+                        <p>
+                            Business-боту необходимо право
+                            удаления всех сообщений.
+                            После включения режима новые сообщения
+                            собеседника будут удаляться
+                            в текущем Business-чате.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="faq-item reveal">
+
+                    <button class="faq-question">
+
+                        <span>
+                            Можно ли запретить другому Business-боту удалять сообщения?
+                        </span>
+
+                        <div class="faq-plus">
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                    </button>
+
+                    <div class="faq-answer">
+
+                        <p>
+                            Нет. Telegram не предоставляет
+                            механизма, позволяющего одному
+                            Business-боту блокировать действия
+                            Business-бота другого аккаунта.
+                            Команда .antimute показывает
+                            информацию об этом ограничении.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer class="footer">
+
+    <div class="container">
+
+        <div class="footer-inner">
+
+            <div class="footer-brand">
+
+                <img src="logo.png" alt="Save Gram">
+
+                <div>
+                    <strong>Save Gram</strong>
+                    <span>Telegram Business</span>
+                </div>
+
+            </div>
+
+
+            <div class="footer-text">
+                Команды Save Gram
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<script src="script.js"></script>
+
 </body>
 </html>
