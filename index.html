@@ -1143,6 +1143,10 @@
       font-size: 11px;
     }
 
+    .command-example code + code {
+      margin-top: 6px;
+    }
+
     .command-note {
       margin-top: 10px;
 
@@ -1621,8 +1625,9 @@
           </h1>
 
           <p class="hero-description">
-            Анимации, развлечения, игры, сервисные функции
-            и управление чатами прямо через Telegram Business.
+            Анимации, развлечения, игры, сервисные функции,
+            работа с текстом и управление чатами прямо
+            через Telegram Business.
           </p>
 
           <div class="hero-buttons">
@@ -1701,13 +1706,13 @@
           <div class="preview-stats">
 
             <div class="preview-stat">
-              <strong>28</strong>
-              <span>команд</span>
+              <strong>54</strong>
+              <span>команды</span>
             </div>
 
             <div class="preview-stat">
-              <strong>4</strong>
-              <span>категории</span>
+              <strong>5</strong>
+              <span>категорий</span>
             </div>
 
           </div>
@@ -1777,7 +1782,7 @@
           <h3>Удобные фильтры</h3>
 
           <p>
-            Анимации, развлечения, сервис
+            Анимации, развлечения, сервис, текст
             и управление разделены по категориям.
           </p>
 
@@ -1845,7 +1850,7 @@
         </div>
 
         <div class="command-counter">
-          28 команд
+          54 команды
         </div>
 
       </div>
@@ -1895,6 +1900,13 @@
             data-filter="utility"
           >
             Сервис
+          </button>
+
+          <button
+            class="filter"
+            data-filter="text"
+          >
+            Текст
           </button>
 
           <button
@@ -2333,6 +2345,111 @@
 
         </article>
 
+        <!-- loading -->
+
+        <article
+          class="command-card reveal"
+          data-category="animation"
+          data-search=".loading загрузка текст"
+        >
+
+          <div class="card-header">
+
+            <div class="command-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 3v3"></path>
+                <path d="M12 18v3"></path>
+                <path d="m5.6 5.6 2.1 2.1"></path>
+                <path d="m16.3 16.3 2.1 2.1"></path>
+                <path d="M3 12h3"></path>
+                <path d="M18 12h3"></path>
+                <path d="m5.6 18.4 2.1-2.1"></path>
+                <path d="m16.3 7.7 2.1-2.1"></path>
+              </svg>
+            </div>
+
+            <span class="command-category">
+              Анимация
+            </span>
+
+          </div>
+
+          <h3>Загрузка</h3>
+
+          <div class="command-code-row">
+            <code>.loading текст</code>
+
+            <button class="copy-button" data-copy=".loading текст">
+              <svg viewBox="0 0 24 24">
+                <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+            </button>
+          </div>
+
+          <p>
+            Показывает короткую загрузку,
+            а затем текст.
+          </p>
+
+          <div class="command-example">
+            <span>Пример</span>
+            <code>.loading Готово!</code>
+          </div>
+
+        </article>
+
+        <!-- hack -->
+
+        <article
+          class="command-card reveal"
+          data-category="animation"
+          data-search=".hack шуточная обработка данных хакер"
+        >
+
+          <div class="card-header">
+
+            <div class="command-icon">
+              <svg viewBox="0 0 24 24">
+                <rect x="3" y="4" width="18" height="14" rx="3"></rect>
+                <path d="M7 9h3"></path>
+                <path d="M7 13h6"></path>
+                <path d="M8 21h8"></path>
+                <path d="M12 18v3"></path>
+              </svg>
+            </div>
+
+            <span class="command-category">
+              Анимация
+            </span>
+
+          </div>
+
+          <h3>Шуточный взлом</h3>
+
+          <div class="command-code-row">
+            <code>.hack текст</code>
+
+            <button class="copy-button" data-copy=".hack текст">
+              <svg viewBox="0 0 24 24">
+                <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+            </button>
+          </div>
+
+          <p>
+            Шуточная анимация обработки данных,
+            затем выводит текст.
+          </p>
+
+          <div class="command-example">
+            <span>Пример</span>
+            <code>.hack Доступ получен</code>
+          </div>
+
+        </article>
+
         <!-- percent -->
 
         <article
@@ -2676,6 +2793,198 @@
 
         </article>
 
+        <!-- emoji -->
+        <article class="command-card reveal"
+          data-category="fun"
+          data-search=".emoji эмодзи случайный быстрый ответ">
+          <div class="card-header">
+            <div class="command-icon">
+              <svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="9"></circle>
+                <path d="M9 10h.01"></path>
+                <path d="M15 10h.01"></path>
+                <path d="M8 15c1.2 1.3 2.6 2 4 2s2.8-.7 4-2"></path>
+              </svg>
+            </div>
+            <span class="command-category">Развлечение</span>
+          </div>
+          <h3>Случайный эмодзи</h3>
+          <div class="command-code-row">
+            <code>.emoji</code>
+            <button class="copy-button" data-copy=".emoji">
+              <svg viewBox="0 0 24 24">
+                <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+            </button>
+          </div>
+          <p>Отправляет случайный эмодзи для быстрого ответа.</p>
+          <div class="command-example">
+            <span>Пример</span>
+            <code>.emoji</code>
+          </div>
+        </article>
+
+        <!-- .friend -->
+        <article class="command-card reveal"
+          data-category="fun"
+          data-search=".friend дружба процент имена">
+          <div class="card-header">
+            <div class="command-icon">
+              <svg viewBox="0 0 24 24">
+                <circle cx="9" cy="8" r="3"></circle>
+                <circle cx="17" cy="8" r="3"></circle>
+                <path d="M3 20a6 6 0 0 1 12 0"></path>
+                <path d="M13 20a6 6 0 0 1 8-5.6"></path>
+              </svg>
+            </div>
+            <span class="command-category">Развлечение</span>
+          </div>
+          <h3>Процент дружбы</h3>
+          <div class="command-code-row">
+            <code>.friend имя1 имя2</code>
+            <button class="copy-button" data-copy=".friend имя1 имя2">
+              <svg viewBox="0 0 24 24">
+                <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+            </button>
+          </div>
+          <p>Показывает шуточный процент дружбы между двумя именами.</p>
+          <div class="command-example">
+            <span>Пример</span>
+            <code>.friend Алиса Максим</code>
+          </div>
+        </article>
+
+        <!-- .enemy -->
+        <article class="command-card reveal"
+          data-category="fun"
+          data-search=".enemy соперничество процент">
+          <div class="card-header">
+            <div class="command-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M14 4 4 14l6 6L20 10Z"></path>
+                <path d="m9 9 6 6"></path>
+              </svg>
+            </div>
+            <span class="command-category">Развлечение</span>
+          </div>
+          <h3>Процент соперничества</h3>
+          <div class="command-code-row">
+            <code>.enemy имя1 имя2</code>
+            <button class="copy-button" data-copy=".enemy имя1 имя2">
+              <svg viewBox="0 0 24 24">
+                <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+            </button>
+          </div>
+          <p>Показывает шуточный процент соперничества между именами.</p>
+          <div class="command-example">
+            <span>Пример</span>
+            <code>.enemy Алиса Максим</code>
+          </div>
+        </article>
+
+        <!-- .duel -->
+        <article class="command-card reveal"
+          data-category="fun"
+          data-search=".duel дуэль победитель">
+          <div class="card-header">
+            <div class="command-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M3 21 14 10"></path>
+                <path d="m21 21-11-11"></path>
+                <path d="m14 6 4 4"></path>
+                <path d="m6 4 4 4"></path>
+              </svg>
+            </div>
+            <span class="command-category">Развлечение</span>
+          </div>
+          <h3>Шуточная дуэль</h3>
+          <div class="command-code-row">
+            <code>.duel имя1 имя2</code>
+            <button class="copy-button" data-copy=".duel имя1 имя2">
+              <svg viewBox="0 0 24 24">
+                <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+            </button>
+          </div>
+          <p>Выбирает победителя шуточной дуэли между двумя именами.</p>
+          <div class="command-example">
+            <span>Пример</span>
+            <code>.duel Алиса Максим</code>
+          </div>
+        </article>
+
+        <!-- .rps -->
+        <article class="command-card reveal"
+          data-category="fun"
+          data-search=".rps камень ножницы бумага игра бот">
+          <div class="card-header">
+            <div class="command-icon">
+              <svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="9"></circle>
+                <path d="M8 15c1.2 1.2 2.5 1.8 4 1.8s2.8-.6 4-1.8"></path>
+                <path d="M9 9h.01"></path>
+                <path d="M15 9h.01"></path>
+              </svg>
+            </div>
+            <span class="command-category">Развлечение</span>
+          </div>
+          <h3>Камень, ножницы, бумага</h3>
+          <div class="command-code-row">
+            <code>.rps камень</code>
+            <button class="copy-button" data-copy=".rps камень">
+              <svg viewBox="0 0 24 24">
+                <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+            </button>
+          </div>
+          <p>Игра с ботом: камень, ножницы или бумага.</p>
+          <div class="command-example">
+            <span>Пример</span>
+            <code>.rps ножницы</code>
+          </div>
+        </article>
+
+        <!-- .roll -->
+        <article class="command-card reveal"
+          data-category="fun"
+          data-search=".roll случайное число максимум">
+          <div class="card-header">
+            <div class="command-icon">
+              <svg viewBox="0 0 24 24">
+                <rect x="3" y="3" width="18" height="18" rx="4"></rect>
+                <circle cx="8" cy="8" r=".8"></circle>
+                <circle cx="16" cy="8" r=".8"></circle>
+                <circle cx="8" cy="16" r=".8"></circle>
+                <circle cx="16" cy="16" r=".8"></circle>
+                <circle cx="12" cy="12" r=".8"></circle>
+              </svg>
+            </div>
+            <span class="command-category">Развлечение</span>
+          </div>
+          <h3>Случайное число</h3>
+          <div class="command-code-row">
+            <code>.roll максимум</code>
+            <button class="copy-button" data-copy=".roll максимум">
+              <svg viewBox="0 0 24 24">
+                <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+            </button>
+          </div>
+          <p>Случайное число от 1 до указанного значения.</p>
+          <div class="command-example">
+            <span>Пример</span>
+            <code>.roll 100</code>
+          </div>
+        </article>
+
         <!-- me -->
 
         <article
@@ -2855,7 +3164,7 @@
             <button class="copy-button" data-copy=".time">
               <svg viewBox="0 0 24 24">
                 <rect x="9" y="9" width="11" height="11" rx="2"></rect>
-                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2 2v1"></path>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
               </svg>
             </button>
           </div>
@@ -2970,6 +3279,454 @@
             <code>.commands</code>
           </div>
 
+        </article>
+
+        <!-- .today -->
+        <article class="command-card reveal"
+          data-category="utility"
+          data-search=".today статистика чат сегодня сообщения медиа">
+          <div class="card-header">
+            <div class="command-icon">
+              <svg viewBox="0 0 24 24">
+                <rect x="3" y="5" width="18" height="16" rx="3"></rect>
+                <path d="M3 10h18"></path>
+                <path d="M8 3v4"></path>
+                <path d="M16 3v4"></path>
+              </svg>
+            </div>
+            <span class="command-category">Сервис</span>
+          </div>
+          <h3>Статистика за сегодня</h3>
+          <div class="command-code-row">
+            <code>.today</code>
+            <button class="copy-button" data-copy=".today">
+              <svg viewBox="0 0 24 24">
+                <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+            </button>
+          </div>
+          <p>Показывает статистику текущего чата за сегодня: сообщения, текст и медиа.</p>
+          <div class="command-example">
+            <span>Пример</span>
+            <code>.today</code>
+          </div>
+        </article>
+
+        <!-- .stats -->
+        <article class="command-card reveal"
+          data-category="utility"
+          data-search=".stats статистика общение стикеры фото видео gif">
+          <div class="card-header">
+            <div class="command-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 20V10"></path>
+                <path d="M10 20V4"></path>
+                <path d="M16 20v-7"></path>
+                <path d="M22 20H2"></path>
+              </svg>
+            </div>
+            <span class="command-category">Сервис</span>
+          </div>
+          <h3>Статистика общения</h3>
+          <div class="command-code-row">
+            <code>.stats</code>
+            <button class="copy-button" data-copy=".stats">
+              <svg viewBox="0 0 24 24">
+                <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+            </button>
+          </div>
+          <p>Статистика обоих участников: сообщения, стикеры, фото, видео и GIF.</p>
+          <div class="command-example">
+            <span>Пример</span>
+            <code>.stats</code>
+          </div>
+        </article>
+
+        <!-- .age -->
+        <article class="command-card reveal"
+          data-category="utility"
+          data-search=".age возраст дата рождения дд мм гггг">
+          <div class="card-header">
+            <div class="command-icon">
+              <svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="9"></circle>
+                <path d="M12 7v5l3 2"></path>
+              </svg>
+            </div>
+            <span class="command-category">Сервис</span>
+          </div>
+          <h3>Возраст по дате</h3>
+          <div class="command-code-row">
+            <code>.age дд.мм.гггг</code>
+            <button class="copy-button" data-copy=".age дд.мм.гггг">
+              <svg viewBox="0 0 24 24">
+                <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+            </button>
+          </div>
+          <p>Рассчитывает возраст по дате рождения.</p>
+          <div class="command-example">
+            <span>Пример</span>
+            <code>.age 15.03.2000</code>
+          </div>
+        </article>
+
+        <!-- .days -->
+        <article class="command-card reveal"
+          data-category="utility"
+          data-search=".days сколько дней осталось до даты">
+          <div class="card-header">
+            <div class="command-icon">
+              <svg viewBox="0 0 24 24">
+                <rect x="3" y="5" width="18" height="16" rx="3"></rect>
+                <path d="M3 10h18"></path>
+                <path d="M8 3v4"></path>
+                <path d="M16 3v4"></path>
+                <path d="m9 15 2 2 4-4"></path>
+              </svg>
+            </div>
+            <span class="command-category">Сервис</span>
+          </div>
+          <h3>Дней до даты</h3>
+          <div class="command-code-row">
+            <code>.days дд.мм.гггг</code>
+            <button class="copy-button" data-copy=".days дд.мм.гггг">
+              <svg viewBox="0 0 24 24">
+                <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+            </button>
+          </div>
+          <p>Показывает, сколько дней осталось до указанной даты.</p>
+          <div class="command-example">
+            <span>Пример</span>
+            <code>.days 01.01.2027</code>
+          </div>
+        </article>
+
+        <!-- .date -->
+        <article class="command-card reveal"
+          data-category="utility"
+          data-search=".date сегодняшняя дата">
+          <div class="card-header">
+            <div class="command-icon">
+              <svg viewBox="0 0 24 24">
+                <rect x="3" y="5" width="18" height="16" rx="3"></rect>
+                <path d="M3 10h18"></path>
+                <path d="M8 3v4"></path>
+                <path d="M16 3v4"></path>
+              </svg>
+            </div>
+            <span class="command-category">Сервис</span>
+          </div>
+          <h3>Сегодняшняя дата</h3>
+          <div class="command-code-row">
+            <code>.date</code>
+            <button class="copy-button" data-copy=".date">
+              <svg viewBox="0 0 24 24">
+                <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+            </button>
+          </div>
+          <p>Отправляет сегодняшнюю дату.</p>
+          <div class="command-example">
+            <span>Пример</span>
+            <code>.date</code>
+          </div>
+        </article>
+
+        <!-- .week -->
+        <article class="command-card reveal"
+          data-category="utility"
+          data-search=".week день недели сегодня">
+          <div class="card-header">
+            <div class="command-icon">
+              <svg viewBox="0 0 24 24">
+                <rect x="3" y="5" width="18" height="16" rx="3"></rect>
+                <path d="M3 10h18"></path>
+                <path d="M8 3v4"></path>
+                <path d="M16 3v4"></path>
+                <circle cx="12" cy="15" r="1.5"></circle>
+              </svg>
+            </div>
+            <span class="command-category">Сервис</span>
+          </div>
+          <h3>День недели</h3>
+          <div class="command-code-row">
+            <code>.week</code>
+            <button class="copy-button" data-copy=".week">
+              <svg viewBox="0 0 24 24">
+                <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+            </button>
+          </div>
+          <p>Показывает текущий день недели.</p>
+          <div class="command-example">
+            <span>Пример</span>
+            <code>.week</code>
+          </div>
+        </article>
+
+        <!-- .calc -->
+        <article class="command-card reveal"
+          data-category="utility"
+          data-search=".calc калькулятор математика пример скобки">
+          <div class="card-header">
+            <div class="command-icon">
+              <svg viewBox="0 0 24 24">
+                <rect x="4" y="3" width="16" height="18" rx="3"></rect>
+                <path d="M8 7h8"></path>
+                <path d="M8 12h.01"></path>
+                <path d="M12 12h.01"></path>
+                <path d="M16 12h.01"></path>
+                <path d="M8 16h.01"></path>
+                <path d="M12 16h.01"></path>
+                <path d="M16 16h.01"></path>
+              </svg>
+            </div>
+            <span class="command-category">Сервис</span>
+          </div>
+          <h3>Калькулятор</h3>
+          <div class="command-code-row">
+            <code>.calc пример</code>
+            <button class="copy-button" data-copy=".calc пример">
+              <svg viewBox="0 0 24 24">
+                <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+            </button>
+          </div>
+          <p>Безопасно решает математические примеры со скобками и основными действиями.</p>
+          <div class="command-example">
+            <span>Пример</span>
+            <code>.calc (2+3)*4</code>
+          </div>
+        </article>
+
+        <!-- .tr -->
+        <article class="command-card reveal"
+          data-category="utility"
+          data-search=".tr перевод текст русский английский">
+          <div class="card-header">
+            <div class="command-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 5h9"></path>
+                <path d="M8 3v2"></path>
+                <path d="M6 5c0 4-2 7-4 9"></path>
+                <path d="M5 9c1 3 3 5 5 6"></path>
+                <path d="m13 20 4-11 4 11"></path>
+                <path d="M14.5 17h5"></path>
+              </svg>
+            </div>
+            <span class="command-category">Сервис</span>
+          </div>
+          <h3>Перевод текста</h3>
+          <div class="command-code-row">
+            <code>.tr текст</code>
+            <button class="copy-button" data-copy=".tr текст">
+              <svg viewBox="0 0 24 24">
+                <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+            </button>
+          </div>
+          <p>Переводит текст на русский. Для перевода на английский укажите <code>en</code> после команды.</p>
+          <div class="command-example">
+            <span>Примеры</span>
+            <code>.tr Hello</code>
+            <code>.tr en Привет</code>
+          </div>
+        </article>
+
+        <!-- .tiny -->
+        <article class="command-card reveal"
+          data-category="text"
+          data-search=".tiny уменьшенный unicode декоративный текст">
+          <div class="card-header">
+            <div class="command-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 18 8 6l4 12"></path>
+                <path d="M5.5 14h5"></path>
+                <path d="M13 18h7"></path>
+                <path d="M13 14h5"></path>
+              </svg>
+            </div>
+            <span class="command-category">Текст</span>
+          </div>
+          <h3>Уменьшенный текст</h3>
+          <div class="command-code-row">
+            <code>.tiny текст</code>
+            <button class="copy-button" data-copy=".tiny текст">
+              <svg viewBox="0 0 24 24">
+                <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+            </button>
+          </div>
+          <p>Оформляет текст декоративными уменьшенными Unicode-символами.</p>
+          <div class="command-example">
+            <span>Пример</span>
+            <code>.tiny Привет</code>
+          </div>
+        </article>
+
+        <!-- .bold -->
+        <article class="command-card reveal"
+          data-category="text"
+          data-search=".bold жирный текст">
+          <div class="card-header">
+            <div class="command-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M7 5h6a3.5 3.5 0 0 1 0 7H7Z"></path>
+                <path d="M7 12h7a3.5 3.5 0 0 1 0 7H7Z"></path>
+              </svg>
+            </div>
+            <span class="command-category">Текст</span>
+          </div>
+          <h3>Жирный текст</h3>
+          <div class="command-code-row">
+            <code>.bold текст</code>
+            <button class="copy-button" data-copy=".bold текст">
+              <svg viewBox="0 0 24 24">
+                <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+            </button>
+          </div>
+          <p>Отправляет текст жирным.</p>
+          <div class="command-example">
+            <span>Пример</span>
+            <code>.bold Важно</code>
+          </div>
+        </article>
+
+        <!-- .italic -->
+        <article class="command-card reveal"
+          data-category="text"
+          data-search=".italic курсив текст">
+          <div class="card-header">
+            <div class="command-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M10 5h8"></path>
+                <path d="M6 19h8"></path>
+                <path d="m14 5-4 14"></path>
+              </svg>
+            </div>
+            <span class="command-category">Текст</span>
+          </div>
+          <h3>Курсив</h3>
+          <div class="command-code-row">
+            <code>.italic текст</code>
+            <button class="copy-button" data-copy=".italic текст">
+              <svg viewBox="0 0 24 24">
+                <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+            </button>
+          </div>
+          <p>Отправляет текст курсивом.</p>
+          <div class="command-example">
+            <span>Пример</span>
+            <code>.italic Мысль</code>
+          </div>
+        </article>
+
+        <!-- .code -->
+        <article class="command-card reveal"
+          data-category="text"
+          data-search=".code код моноширинный текст">
+          <div class="card-header">
+            <div class="command-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="m8 8-4 4 4 4"></path>
+                <path d="m16 8 4 4-4 4"></path>
+                <path d="m13 6-2 12"></path>
+              </svg>
+            </div>
+            <span class="command-category">Текст</span>
+          </div>
+          <h3>Текст как код</h3>
+          <div class="command-code-row">
+            <code>.code текст</code>
+            <button class="copy-button" data-copy=".code текст">
+              <svg viewBox="0 0 24 24">
+                <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+            </button>
+          </div>
+          <p>Оформляет текст как код.</p>
+          <div class="command-example">
+            <span>Пример</span>
+            <code>.code print("hi")</code>
+          </div>
+        </article>
+
+        <!-- .link -->
+        <article class="command-card reveal"
+          data-category="text"
+          data-search=".link ссылка кликабельный текст">
+          <div class="card-header">
+            <div class="command-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M10 14a4 4 0 0 0 5.6 0l3.4-3.4a4 4 0 0 0-5.6-5.6L11 7"></path>
+                <path d="M14 10a4 4 0 0 0-5.6 0L5 13.4a4 4 0 0 0 5.6 5.6L13 17"></path>
+              </svg>
+            </div>
+            <span class="command-category">Текст</span>
+          </div>
+          <h3>Кликабельная ссылка</h3>
+          <div class="command-code-row">
+            <code>.link текст ссылка</code>
+            <button class="copy-button" data-copy=".link текст ссылка">
+              <svg viewBox="0 0 24 24">
+                <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+            </button>
+          </div>
+          <p>Создаёт кликабельный текст со ссылкой.</p>
+          <div class="command-example">
+            <span>Пример</span>
+            <code>.link SaveGram https://t.me/savegram</code>
+          </div>
+        </article>
+
+        <!-- .hide -->
+        <article class="command-card reveal"
+          data-category="text"
+          data-search=".hide спойлер скрытое сообщение">
+          <div class="card-header">
+            <div class="command-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12Z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="m4 4 16 16"></path>
+              </svg>
+            </div>
+            <span class="command-category">Текст</span>
+          </div>
+          <h3>Скрытое сообщение</h3>
+          <div class="command-code-row">
+            <code>.hide текст</code>
+            <button class="copy-button" data-copy=".hide текст">
+              <svg viewBox="0 0 24 24">
+                <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+            </button>
+          </div>
+          <p>Скрывает сообщение под спойлер.</p>
+          <div class="command-example">
+            <span>Пример</span>
+            <code>.hide Спойлер!</code>
+          </div>
         </article>
 
         <!-- clone -->
@@ -3318,6 +4075,102 @@
 
         </article>
 
+        <!-- .antivoice -->
+        <article class="command-card reveal"
+          data-category="control"
+          data-search=".antivoice голосовые сообщения удаление">
+          <div class="card-header">
+            <div class="command-icon">
+              <svg viewBox="0 0 24 24">
+                <rect x="9" y="3" width="6" height="12" rx="3"></rect>
+                <path d="M5 11a7 7 0 0 0 14 0"></path>
+                <path d="M12 18v3"></path>
+                <path d="m4 4 16 16"></path>
+              </svg>
+            </div>
+            <span class="command-category">Управление</span>
+          </div>
+          <h3>Anti-Voice</h3>
+          <div class="command-code-row">
+            <code>.antivoice</code>
+            <button class="copy-button" data-copy=".antivoice">
+              <svg viewBox="0 0 24 24">
+                <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+            </button>
+          </div>
+          <p>Включает удаление новых голосовых сообщений собеседника.</p>
+          <div class="command-example">
+            <span>Пример</span>
+            <code>.antivoice</code>
+          </div>
+        </article>
+
+        <!-- .antigif -->
+        <article class="command-card reveal"
+          data-category="control"
+          data-search=".antigif gif удаление анимации">
+          <div class="card-header">
+            <div class="command-icon">
+              <svg viewBox="0 0 24 24">
+                <rect x="3" y="4" width="18" height="16" rx="3"></rect>
+                <path d="M3 9h18"></path>
+                <path d="M3 15h18"></path>
+                <path d="m6 4 12 16"></path>
+              </svg>
+            </div>
+            <span class="command-category">Управление</span>
+          </div>
+          <h3>Anti-GIF</h3>
+          <div class="command-code-row">
+            <code>.antigif</code>
+            <button class="copy-button" data-copy=".antigif">
+              <svg viewBox="0 0 24 24">
+                <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+            </button>
+          </div>
+          <p>Включает удаление новых GIF.</p>
+          <div class="command-example">
+            <span>Пример</span>
+            <code>.antigif</code>
+          </div>
+        </article>
+
+        <!-- .antiphoto -->
+        <article class="command-card reveal"
+          data-category="control"
+          data-search=".antiphoto фото удаление фотографии">
+          <div class="card-header">
+            <div class="command-icon">
+              <svg viewBox="0 0 24 24">
+                <rect x="3" y="5" width="18" height="14" rx="3"></rect>
+                <circle cx="9" cy="11" r="2"></circle>
+                <path d="m4 18 5-5 4 4 3-3 4 4"></path>
+                <path d="m4 4 16 16"></path>
+              </svg>
+            </div>
+            <span class="command-category">Управление</span>
+          </div>
+          <h3>Anti-Photo</h3>
+          <div class="command-code-row">
+            <code>.antiphoto</code>
+            <button class="copy-button" data-copy=".antiphoto">
+              <svg viewBox="0 0 24 24">
+                <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+            </button>
+          </div>
+          <p>Включает удаление новых фотографий.</p>
+          <div class="command-example">
+            <span>Пример</span>
+            <code>.antiphoto</code>
+          </div>
+        </article>
+
       </div>
 
     </div>
@@ -3632,8 +4485,95 @@
 
             <p>
               .antistick автоматически удаляет
-              новые стикеры собеседника
-              и применяется к новым Business-чатам.
+              новые стикеры собеседника.
+              Также режим применяется
+              к новым Business-чатам.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="faq-item reveal">
+
+          <button class="faq-question">
+
+            <span>
+              Как работают .antivoice, .antigif и .antiphoto?
+            </span>
+
+            <div class="faq-plus">
+              <span></span>
+              <span></span>
+            </div>
+
+          </button>
+
+          <div class="faq-answer">
+
+            <p>
+              Эти команды включают автоматическое
+              удаление новых голосовых сообщений,
+              GIF и фотографий собеседника
+              в текущем Business-чате.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="faq-item reveal">
+
+          <button class="faq-question">
+
+            <span>
+              Что показывают .today и .stats?
+            </span>
+
+            <div class="faq-plus">
+              <span></span>
+              <span></span>
+            </div>
+
+          </button>
+
+          <div class="faq-answer">
+
+            <p>
+              .today показывает статистику текущего
+              чата за сегодня: сообщения, текст и медиа.
+              .stats показывает статистику общения
+              обоих участников: сообщения, стикеры,
+              фото, видео и GIF.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="faq-item reveal">
+
+          <button class="faq-question">
+
+            <span>
+              Как работают команды перевода и калькулятор?
+            </span>
+
+            <div class="faq-plus">
+              <span></span>
+              <span></span>
+            </div>
+
+          </button>
+
+          <div class="faq-answer">
+
+            <p>
+              .tr переводит текст на русский,
+              а .tr en — на английский.
+              .calc безопасно решает математические
+              примеры со скобками и основными
+              действиями.
             </p>
 
           </div>
